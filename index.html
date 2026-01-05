@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Price List - Mobile Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<header>
+<h1>Mobile Hub</h1>
+<div class="contact">Mobile: 8439588304 | Ayush Jindal</div>
+<h4>Mobile market, Adarsh Nagar, Modinagar</h4>
+</header>
+
+<div class="content">
+<div class="table-header">
+<div class="table-title">Price List</div>
+<div class="date-selector">
+  <input type="date" id="dateInput" class="date-input">
+  <select id="timeInput" class="time-input">
+    <option value="">Latest</option>
+  </select>
+  <div>Updated: <span id="dateDisplay"></span> <span id="dateStatus"></span></div>
+  <button id="resetDateBtn" class="reset-date-btn">Reset</button>
+</div>
+</div>
+
+<!-- NO DATA MESSAGE -->
+<div id="pageNotFound" class="page-not-found">
+<h2>No Data</h2>
+<p>No price data available for selected date.</p>
+<div class="suggestion">
+<p>Try different date or "Reset to Today"</p>
+</div>
+</div>
+
+<!-- 10 DYNAMIC TABLES -->
+<div class="brand-section" id="iphoneSec">
+<div class="brand-name">iPhone</div>
+<div class="table-wrapper">
+<table>
+<thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
+<tbody id="iphone"></tbody>
+</table>
+</div>
+</div>
+
+<div class="brand-section" id="oneplusSec">
+<div class="brand-name">OnePlus</div>
+<div class="table-wrapper">
+<table>
+<thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
+<tbody id="oneplus"></tbody>
+</table>
+</div>
+</div>
+
+<div class="brand-section" id="nothingSec">
+<div class="brand-name">Nothing</div>
+<div class="table-wrapper">
+<table>
+<thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
+<tbody id="nothing"></tbody>
+</table>
+</div>
+</div>
+
+<div class="brand-section" id="motoSec">
+<div class="brand-name">Moto</div>
+<div class="table-wrapper">
+<table>
+<thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
+<tbody id="moto"></tbody>
+</table>
+</div>
+</div>
+
+<div class="brand-section" id="iqooSec">
+<div class="brand-name">iQOO</div>
+<div class="table-wrapper">
+<table>
+<thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
+<tbody id="iqoo"></tbody>
+</table>
+</div>
+</div>
+
+<div class="brand-section" id="tecnoSec">
+<div class="brand-name">Tecno</div>
+<div class="table-wrapper">
+<table>
+<thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
+<tbody id="tecno"></tbody>
+</table>
+</div>
+</div>
+
+<div class="brand-section" id="pocoSec">
+<div class="brand-name">Poco</div>
+<div class="table-wrapper">
+<table>
+<thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
+<tbody id="poco"></tbody>
+</table>
+</div>
+</div>
+
+<div class="brand-section" id="infinixSec">
+<div class="brand-name">Infinix</div>
+<div class="table-wrapper">
+<table>
+<thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
+<tbody id="infinix"></tbody>
+</table>
+</div>
+</div>
+
+<div class="brand-section" id="oppoSec">
+<div class="brand-name">Oppo</div>
+<div class="table-wrapper">
+<table>
+<thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
+<tbody id="oppo"></tbody>
+</table>
+</div>
+</div>
+
+<div class="brand-section" id="samsungSec">
+<div class="brand-name">Samsung</div>
+<div class="table-wrapper">
+<table>
+<thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
+<tbody id="samsung"></tbody>
+</table>
+</div>
+</div>
+
+<div class="brand-section" id="nokiaSec">
+<div class="brand-name">Nokia</div>
+<div class="table-wrapper">
+<table>
+<thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
+<tbody id="nokia"></tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
