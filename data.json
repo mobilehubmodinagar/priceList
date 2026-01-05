@@ -93,6 +93,20 @@
       { "model": "P4X 5G", "ram_storage": "8GB / 256GB", "color": "SILVER", "price": 18000, "online_price": 19500, "stock": "In Stock" },
       { "model": "P4 5G", "ram_storage": "6GB / 128GB", "color": "BLUE, GREY OPEN", "price": 17000, "online_price": 18500, "stock": "In Stock" },
       { "model": "REALME 11 5G", "ram_storage": "8GB / 256GB", "color": "GOLD", "price": 16000, "online_price": 20000, "stock": "In Stock" }
+    ],
+       "narzo": [
+      { "model": "Narzo 80 Lite", "ram_storage": "6GB / 128GB", "color": "BLUE", "price": 11700, "online_price": 12500, "stock": "In Stock" },
+      { "model": "Narzo 80 Pro", "ram_storage": "8GB / 128GB", "color": "SILVER", "price": 17300, "online_price": null, "stock": "In Stock" },
+      { "model": "Narzo 90x 5G", "ram_storage": "6GB / 128GB", "color": "BLUE", "price": 12700, "online_price": 14000, "stock": "In Stock" },
+      { "model": "NARZO 90X 5G", "ram_storage": "8GB / 128GB", "color": "PURPLE", "price": 14300, "online_price": 15500, "stock": "In Stock" }
+    ],
+        "redmi": [
+      { "model": "REDMI 15 5G", "ram_storage": "6GB / 128GB", "color": "PURPLE, WHITE", "price": 14300, "online_price": 16000, "stock": "In Stock" },
+      { "model": "REDMI A4", "ram_storage": "4GB / 64GB", "color": "PURPLE", "price": null, "online_price": null, "stock": "Out Stock" },
+      { "model": "REDMI A4", "ram_storage": "4GB / 128GB", "color": "BLUE", "price": null, "online_price": null, "stock": "Out Stock" },
+      { "model": "REDMI 14C 5G", "ram_storage": "4GB / 128GB", "color": "BLUE, BLACK, PURPLE", "price": 9800, "online_price": 11000, "stock": "In Stock" },
+      { "model": "REDMI 14C 5G", "ram_storage": "6GB / 128GB", "color": "BLUE, BLACK, PURPLE", "price": 10700, "online_price": 12000, "stock": "In Stock" },  
+      { "model": "REDMI NOTE 14 5G", "ram_storage": "8GB / 128GB", "color": "BLACK OPEN", "price": 15500, "online_price": 17000, "stock": "In Stock" }
     ]
   }
 }
