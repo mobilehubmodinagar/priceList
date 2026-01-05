@@ -64,144 +64,35 @@
     ],
     "samsung": [
       { "model": "M17 5G", "ram_storage": "6GB / 128GB", "color": "Black", "price": 14000, "online_price": null, "stock": "In Stock" },
-      { "model": "A17 5G", "ram_storage": "6GB / 128GB", "color": "Silver", "price": 17100, "online_price": 19500, "stock": "In Stock" }
+      { "model": "A17 5G", "ram_storage": "6GB / 128GB", "color": "Silver", "price": 17100, "online_price": 19500, "stock": "In Stock" },
+      { "model": "M36 5G", "ram_storage": "6GB / 128GB", "color": "Orange, Green", "price": 14500, "online_price": null, "stock": "In Stock" },
+       { "model": "Tab A9 LTE", "ram_storage": "4GB / 64GB", "color": "Black", "price": 13000, "online_price": null, "stock": "In Stock" }
+    ],
+    "vivo": [
+      { "model": "T4 Lite", "ram_storage": "4GB / 128GB", "color": "GOLD", "price": 11700, "online_price": 12000, "stock": "In Stock" },
+      { "model": "T4X 5G", "ram_storage": "6GB / 128GB", "color": "BLUE, TEAL", "price": 14800, "online_price": 15500, "stock": "In Stock" },
+      { "model": "T4X 5G", "ram_storage": "8GB / 128GB", "color": "TEAL", "price": 15800, "online_price": 16500, "stock": "In Stock" },
+      { "model": "T4X 5G", "ram_storage": "8GB / 256GB", "color": "TEAL", "price": 17900, "online_price": null, "stock": "In Stock" },
+      { "model": "T4R 5G", "ram_storage": "8GB / 128GB", "color": "BLUE", "price": 19800, "online_price": null, "stock": "In Stock" },
+      { "model": "T4 5G", "ram_storage": "8GB / 128GB", "color": "GREEN", "price": null, "online_price": 22000, "stock": "Out Stock" }
+    ],
+    "realme": [
+      { "model": "GT 7T", "ram_storage": "8GB / 256GB", "color": "Blue", "price": 31000, "online_price": 35000, "stock": "In Stock" },
+      { "model": "C71", "ram_storage": "4GB / 64GB", "color": "BLUE", "price": 7400, "online_price": 8000, "stock": "In Stock" },
+      { "model": "C73 5G", "ram_storage": "4GB / 64GB", "color": "Black", "price": 10100, "online_price": 11000, "stock": "In Stock" },
+      { "model": "C73 5G", "ram_storage": "4GB / 128GB", "color": "BLACK", "price": 11000, "online_price": 12500, "stock": "In Stock" },
+      { "model": "15X 5G", "ram_storage": "6GB / 128GB", "color": "MARINE BLUE", "price": 14800, "online_price": 17000, "stock": "In Stock" },
+      { "model": "15X 5G", "ram_storage": "8GB / 128GB", "color": "MARINE BLUE", "price": 15800, "online_price": 18000, "stock": "In Stock" },
+      { "model": "15T 5G", "ram_storage": "8GB / 256GB", "color": "SILK BLUE", "price": 20500, "online_price": 25000, "stock": "In Stock" },
+      { "model": "P3 LITE 5G", "ram_storage": "4GB / 128GB", "color": "Purple", "price": 11300, "online_price": 12000, "stock": "In Stock" },
+      { "model": "P3 LITE 5G", "ram_storage": "6GB / 128GB", "color": "WHITE", "price": 12200, "online_price": 13000, "stock": "Out Stock" },
+      { "model": "P3X 5G", "ram_storage": "6GB / 128GB", "color": "PINK, SILVER", "price": 12600, "online_price": 13000, "stock": "In Stock" },
+      { "model": "P3X 5G", "ram_storage": "8GB / 128GB", "color": "SILVER", "price": 13600, "online_price": 14000, "stock": "In Stock" },
+      { "model": "P4X 5G", "ram_storage": "6GB / 128GB", "color": "GREEN", "price": 14500, "online_price": 16000, "stock": "In Stock" },
+      { "model": "P4X 5G", "ram_storage": "8GB / 128GB", "color": "SILVER", "price": 16000, "online_price": 17500, "stock": "In Stock" },
+      { "model": "P4X 5G", "ram_storage": "8GB / 256GB", "color": "SILVER", "price": 18000, "online_price": 19500, "stock": "In Stock" },
+      { "model": "P4 5G", "ram_storage": "6GB / 128GB", "color": "BLUE, GREY OPEN", "price": 17000, "online_price": 18500, "stock": "In Stock" },
+      { "model": "REALME 11 5G", "ram_storage": "8GB / 256GB", "color": "GOLD", "price": 16000, "online_price": 20000, "stock": "In Stock" }
     ]
-  },
-    "10:00 AM": {
-    "iphone": [
-      { "model": "iPhone 13", "ram_storage": "128GB", "color": "White", "price": 43500, "online_price": null, "stock": "In Stock" },
-      { "model": "iPhone 15", "ram_storage": "128GB", "color": "Blue", "price": 55400, "online_price": null, "stock": "In Stock" },
-      { "model": "iPhone 16", "ram_storage": "128GB", "color": "White", "price": 63700, "online_price": null, "stock": "In Stock" },
-      { "model": "iPhone 17", "ram_storage": "128GB", "color": "White", "price": 84000, "online_price": null, "stock": "In Stock" }
-    ],
-    "oneplus": [
-      { "model": "CE 5", "ram_storage": "8GB / 128GB", "color": "Black, White, Blue", "price": 24500, "online_price": 25000, "stock": "In Stock" },
-      { "model": "CE 5", "ram_storage": "8GB / 256GB", "color": "White, Blue", "price": 26500, "online_price": 27000, "stock": "In Stock" },
-      { "model": "CE 5", "ram_storage": "12GB / 256GB", "color": "Black", "price": 28500, "online_price": 29000, "stock": "In Stock" },
-      { "model": "Nord 5", "ram_storage": "8GB / 256GB", "color": "Grey, Ice Blue", "price": 32300, "online_price": 34000, "stock": "In Stock" },
-      { "model": "OnePlus 13S", "ram_storage": "12GB / 256GB", "color": "Black", "price": 50000, "online_price": 55000, "stock": "In Stock" },
-      { "model": "OnePlus 15R", "ram_storage": "12GB / 256GB", "color": "Mint", "price": 44700, "online_price": 48000, "stock": "In Stock" }
-    ],
-    "nothing": [
-      { "model": "CMF 2 Pro", "ram_storage": "8GB / 128GB", "color": "White", "price": 18100, "online_price": 19000, "stock": "In Stock" },
-      { "model": "CMF 2 Pro", "ram_storage": "8GB / 256GB", "color": "Black", "price": 19900, "online_price": 21000, "stock": "In Stock" },
-      { "model": "3A Lite", "ram_storage": "8GB / 128GB", "color": "White", "price": 20200, "online_price": 21000, "stock": "In Stock" },
-      { "model": "3A", "ram_storage": "8GB / 128GB", "color": "White", "price": 23500, "online_price": 25000, "stock": "In Stock" },
-      { "model": "3A", "ram_storage": "8GB / 256GB", "color": "Black", "price": 25500, "online_price": 27000, "stock": "In Stock" }
-    ],
-    "moto": [
-      { "model": "G57 Power", "ram_storage": "8GB / 128GB", "color": "Fluidity, Regatta", "price": 14700, "online_price": 15000, "stock": "In Stock" },
-      { "model": "G67 Power", "ram_storage": "-", "color": "Green", "price": 15600, "online_price": 17000, "stock": "In Stock" },
-      { "model": "G86 Power", "ram_storage": "8GB / 128GB", "color": "Sleepbound", "price": 17000, "online_price": 18000, "stock": "In Stock" },
-      { "model": "G96", "ram_storage": "8GB / 128GB", "color": "Ash Blue", "price": 17800, "online_price": 19000, "stock": "In Stock" },
-      { "model": "G96", "ram_storage": "8GB / 256GB", "color": "Ash Blue, Dresden, Orchid", "price": 18700, "online_price": 20000, "stock": "In Stock" },
-      { "model": "60 Fusion", "ram_storage": "8GB / 256GB", "color": "Amazonite, Slipstream", "price": 21200, "online_price": 23000, "stock": "In Stock" },
-      { "model": "60 Fusion", "ram_storage": "12GB / 256GB", "color": "Zephyr, Slipstream, Amazonite", "price": 23000, "online_price": 25000, "stock": "In Stock" }
-    ],
-    "iqoo": [
-      { "model": "Z10X", "ram_storage": "6GB / 128GB", "color": "Ultramarine", "price": 14400, "online_price": 15000, "stock": "In Stock" },
-      { "model": "Neo 10R", "ram_storage": "12GB / 256GB", "color": "Titanium", "price": 30600, "online_price": 32000, "stock": "In Stock" }
-    ],
-    "tecno": [
-      { "model": "Curve", "ram_storage": "8GB / 128GB", "color": "Black", "price": 16600, "online_price": 18000, "stock": "In Stock" },
-      { "model": "Curve", "ram_storage": "8GB / 256GB", "color": "Black", "price": 17700, "online_price": 20000, "stock": "In Stock" }
-    ],
-    "poco": [
-      { "model": "C71", "ram_storage": "4GB / 64GB", "color": "Blue, Gold", "price": 6500, "online_price": null, "stock": "In Stock" },
-      { "model": "C71", "ram_storage": "6GB / 128GB", "color": "Black", "price": 7100, "online_price": null, "stock": "In Stock" },
-      { "model": "C75 5G", "ram_storage": "4GB / 64GB", "color": "Green", "price": 8200, "online_price": null, "stock": "In Stock" },
-      { "model": "C75 5G", "ram_storage": "4GB / 128GB", "color": "Aqua", "price": 8700, "online_price": null, "stock": "In Stock" },
-      { "model": "M7", "ram_storage": "8GB / 128GB", "color": "Green", "price": 10300, "online_price": null, "stock": "In Stock" },
-      { "model": "M7 Plus", "ram_storage": "4GB / 128GB", "color": "Silver", "price": 11700, "online_price": 12000, "stock": "In Stock" }
-    ],
-    "infinix": [
-      { "model": "Hot 60i", "ram_storage": "4GB / 128GB", "color": "Green, Blue, Black", "price": 10500, "online_price": 11000, "stock": "In Stock" },
-      { "model": "Hot 60 5G", "ram_storage": "6GB / 128GB", "color": "Brown", "price": 11700, "online_price": 12500, "stock": "In Stock" },
-      { "model": "Note 50X", "ram_storage": "6GB / 128GB", "color": "Green, Purple", "price": 12800, "online_price": 13500, "stock": "In Stock" },
-      { "model": "Note 50S", "ram_storage": "6GB / 128GB", "color": "Blue, Grey", "price": 17400, "online_price": 18000, "stock": "In Stock" },
-      { "model": "Note 50S", "ram_storage": "8GB / 256GB", "color": "Grey", "price": 20300, "online_price": 21000, "stock": "In Stock" },
-      { "model": "GT 30 (Without Kit)", "ram_storage": "8GB / 128GB", "color": "Green", "price": 18000, "online_price": null, "stock": "In Stock" },
-      { "model": "GT 30 Pro 5G", "ram_storage": "8GB / 256GB", "color": "Black", "price": 24500, "online_price": 26000, "stock": "In Stock" }
-    ],
-    "oppo": [
-      { "model": "K13X", "ram_storage": "6GB / 128GB", "color": "Blue, Violet", "price": 13000, "online_price": 14000, "stock": "In Stock" },
-      { "model": "K13X", "ram_storage": "8GB / 128GB", "color": "Violet", "price": 14300, "online_price": 16000, "stock": "In Stock" },
-      { "model": "K13", "ram_storage": "8GB / 128GB", "color": "Black, Purple", "price": 18000, "online_price": 20000, "stock": "In Stock" },
-      { "model": "K13 5G", "ram_storage": "8GB / 256GB", "color": "Purple", "price": 20000, "online_price": 22000, "stock": "In Stock" }
-    ],
-    "samsung": [
-      { "model": "M17 5G", "ram_storage": "6GB / 128GB", "color": "Black", "price": 14000, "online_price": null, "stock": "In Stock" },
-      { "model": "A17 5G", "ram_storage": "6GB / 128GB", "color": "Silver", "price": 17100, "online_price": 19500, "stock": "In Stock" }
-    ]
-  }
-  },
-  "2026-01-04": {
-    "10:00 AM": {
-    "iphone": [
-      { "model": "iPhone 13", "ram_storage": "128GB", "color": "White", "price": 43500, "online_price": null, "stock": "In Stock" },
-      { "model": "iPhone 15", "ram_storage": "128GB", "color": "Blue", "price": 55400, "online_price": null, "stock": "In Stock" },
-      { "model": "iPhone 16", "ram_storage": "128GB", "color": "White", "price": 63700, "online_price": null, "stock": "In Stock" },
-      { "model": "iPhone 17", "ram_storage": "128GB", "color": "White", "price": 84000, "online_price": null, "stock": "In Stock" }
-    ],
-    "oneplus": [
-      { "model": "CE 5", "ram_storage": "8GB / 128GB", "color": "Black, White, Blue", "price": 24500, "online_price": 25000, "stock": "In Stock" },
-      { "model": "CE 5", "ram_storage": "8GB / 256GB", "color": "White, Blue", "price": 26500, "online_price": 27000, "stock": "In Stock" },
-      { "model": "CE 5", "ram_storage": "12GB / 256GB", "color": "Black", "price": 28500, "online_price": 29000, "stock": "In Stock" },
-      { "model": "Nord 5", "ram_storage": "8GB / 256GB", "color": "Grey, Ice Blue", "price": 32300, "online_price": 34000, "stock": "In Stock" },
-      { "model": "OnePlus 13S", "ram_storage": "12GB / 256GB", "color": "Black", "price": 50000, "online_price": 55000, "stock": "In Stock" },
-      { "model": "OnePlus 15R", "ram_storage": "12GB / 256GB", "color": "Mint", "price": 44700, "online_price": 48000, "stock": "In Stock" }
-    ],
-    "nothing": [
-      { "model": "CMF 2 Pro", "ram_storage": "8GB / 128GB", "color": "White", "price": 18100, "online_price": 19000, "stock": "In Stock" },
-      { "model": "CMF 2 Pro", "ram_storage": "8GB / 256GB", "color": "Black", "price": 19900, "online_price": 21000, "stock": "In Stock" },
-      { "model": "3A Lite", "ram_storage": "8GB / 128GB", "color": "White", "price": 20200, "online_price": 21000, "stock": "In Stock" },
-      { "model": "3A", "ram_storage": "8GB / 128GB", "color": "White", "price": 23500, "online_price": 25000, "stock": "In Stock" },
-      { "model": "3A", "ram_storage": "8GB / 256GB", "color": "Black", "price": 25500, "online_price": 27000, "stock": "In Stock" }
-    ],
-    "moto": [
-      { "model": "G57 Power", "ram_storage": "8GB / 128GB", "color": "Fluidity, Regatta", "price": 14700, "online_price": 15000, "stock": "In Stock" },
-      { "model": "G67 Power", "ram_storage": "-", "color": "Green", "price": 15600, "online_price": 17000, "stock": "In Stock" },
-      { "model": "G86 Power", "ram_storage": "8GB / 128GB", "color": "Sleepbound", "price": 17000, "online_price": 18000, "stock": "In Stock" },
-      { "model": "G96", "ram_storage": "8GB / 128GB", "color": "Ash Blue", "price": 17800, "online_price": 19000, "stock": "In Stock" },
-      { "model": "G96", "ram_storage": "8GB / 256GB", "color": "Ash Blue, Dresden, Orchid", "price": 18700, "online_price": 20000, "stock": "In Stock" },
-      { "model": "60 Fusion", "ram_storage": "8GB / 256GB", "color": "Amazonite, Slipstream", "price": 21200, "online_price": 23000, "stock": "In Stock" },
-      { "model": "60 Fusion", "ram_storage": "12GB / 256GB", "color": "Zephyr, Slipstream, Amazonite", "price": 23000, "online_price": 25000, "stock": "In Stock" }
-    ],
-    "iqoo": [
-      { "model": "Z10X", "ram_storage": "6GB / 128GB", "color": "Ultramarine", "price": 14400, "online_price": 15000, "stock": "In Stock" },
-      { "model": "Neo 10R", "ram_storage": "12GB / 256GB", "color": "Titanium", "price": 30600, "online_price": 32000, "stock": "In Stock" }
-    ],
-    "tecno": [
-      { "model": "Curve", "ram_storage": "8GB / 128GB", "color": "Black", "price": 16600, "online_price": 18000, "stock": "In Stock" },
-      { "model": "Curve", "ram_storage": "8GB / 256GB", "color": "Black", "price": 17700, "online_price": 20000, "stock": "In Stock" }
-    ],
-    "poco": [
-      { "model": "C71", "ram_storage": "4GB / 64GB", "color": "Blue, Gold", "price": 6500, "online_price": null, "stock": "In Stock" },
-      { "model": "C71", "ram_storage": "6GB / 128GB", "color": "Black", "price": 7100, "online_price": null, "stock": "In Stock" },
-      { "model": "C75 5G", "ram_storage": "4GB / 64GB", "color": "Green", "price": 8200, "online_price": null, "stock": "In Stock" },
-      { "model": "C75 5G", "ram_storage": "4GB / 128GB", "color": "Aqua", "price": 8700, "online_price": null, "stock": "In Stock" },
-      { "model": "M7", "ram_storage": "8GB / 128GB", "color": "Green", "price": 10300, "online_price": null, "stock": "In Stock" },
-      { "model": "M7 Plus", "ram_storage": "4GB / 128GB", "color": "Silver", "price": 11700, "online_price": 12000, "stock": "In Stock" }
-    ],
-    "infinix": [
-      { "model": "Hot 60i", "ram_storage": "4GB / 128GB", "color": "Green, Blue, Black", "price": 10500, "online_price": 11000, "stock": "In Stock" },
-      { "model": "Hot 60 5G", "ram_storage": "6GB / 128GB", "color": "Brown", "price": 11700, "online_price": 12500, "stock": "In Stock" },
-      { "model": "Note 50X", "ram_storage": "6GB / 128GB", "color": "Green, Purple", "price": 12800, "online_price": 13500, "stock": "In Stock" },
-      { "model": "Note 50S", "ram_storage": "6GB / 128GB", "color": "Blue, Grey", "price": 17400, "online_price": 18000, "stock": "In Stock" },
-      { "model": "Note 50S", "ram_storage": "8GB / 256GB", "color": "Grey", "price": 20300, "online_price": 21000, "stock": "In Stock" },
-      { "model": "GT 30 (Without Kit)", "ram_storage": "8GB / 128GB", "color": "Green", "price": 18000, "online_price": null, "stock": "In Stock" },
-      { "model": "GT 30 Pro 5G", "ram_storage": "8GB / 256GB", "color": "Black", "price": 24500, "online_price": 26000, "stock": "In Stock" }
-    ],
-    "oppo": [
-      { "model": "K13X", "ram_storage": "6GB / 128GB", "color": "Blue, Violet", "price": 13000, "online_price": 14000, "stock": "In Stock" },
-      { "model": "K13X", "ram_storage": "8GB / 128GB", "color": "Violet", "price": 14300, "online_price": 16000, "stock": "In Stock" },
-      { "model": "K13", "ram_storage": "8GB / 128GB", "color": "Black, Purple", "price": 18000, "online_price": 20000, "stock": "In Stock" },
-      { "model": "K13 5G", "ram_storage": "8GB / 256GB", "color": "Purple", "price": 20000, "online_price": 22000, "stock": "In Stock" }
-    ],
-    "samsung": [
-      { "model": "M17 5G", "ram_storage": "6GB / 128GB", "color": "Black", "price": 14000, "online_price": null, "stock": "In Stock" },
-      { "model": "A17 5G", "ram_storage": "6GB / 128GB", "color": "Silver", "price": 17100, "online_price": 19500, "stock": "In Stock" }
-    ]
-  }
   }
 }
