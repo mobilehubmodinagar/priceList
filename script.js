@@ -85,6 +85,10 @@ async function updateDisplay() {
     renderTable('infinix', dayData.infinix || []);
     renderTable('oppo', dayData.oppo || []);
     renderTable('samsung', dayData.samsung || []);
+    renderTable('vivo', dayData.vivo || []);
+    renderTable('realme', dayData.realme || []);
+    renderTable('narzo', dayData.narzo || []);
+    renderTable('redmi', dayData.redmi || []);
     renderTable('nokia', dayData.nokia || []);
     
   } else {
