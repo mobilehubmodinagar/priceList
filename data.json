@@ -217,7 +217,9 @@
       { "model": "REDMI 14C 5G", "ram_storage": "6GB / 128GB", "color": "BLUE, BLACK, PURPLE", "price": 10700, "online_price": 12000, "stock": "In Stock" },  
       { "model": "REDMI NOTE 14 5G", "ram_storage": "8GB / 128GB", "color": "BLACK OPEN", "price": 15500, "online_price": 17000, "stock": "In Stock" }
     ]
+    }
   },
+  {
    "2026-01-06": {
     "01:59 PM": {
     "iphone": [
