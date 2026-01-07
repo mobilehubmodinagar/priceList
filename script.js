@@ -4,12 +4,31 @@ async function loadData() {
   data = await (await fetch('data.json')).json();
 }
 
+function convertTo24Hour(time12h) {
+  const [time, modifier] = time12h.split(' ');
+  let [hours, minutes] = time.split(':');
+  
+  if (hours === '12') {
+    hours = '00';
+  }
+  
+  if (modifier === 'PM') {
+    hours = parseInt(hours, 10) + 12;
+  }
+  
+  return `${hours}:${minutes}`;
+}
+
 function populateTimes(dateStr) {
   const timeSelect = document.getElementById('timeInput');
   timeSelect.innerHTML = '<option value="">Latest</option>';
   
   if (data[dateStr]) {
-    const times = Object.keys(data[dateStr]).sort().reverse();
+    const times = Object.keys(data[dateStr]).sort((a, b) => {
+      const time24a = convertTo24Hour(a);
+      const time24b = convertTo24Hour(b);
+      return time24b.localeCompare(time24a); // Descending order (latest first)
+    });
     times.forEach(time => {
       const option = document.createElement('option');
       option.value = time;
@@ -52,9 +71,9 @@ async function updateDisplay() {
   await loadData();
   const dateStr = document.getElementById('dateInput').value;
   const timeStr = document.getElementById('timeInput').value;
-  
+
   if (!dateStr) return;
-  
+
   document.getElementById('dateDisplay').textContent = dateStr;
   
   let dayData = null;
@@ -101,7 +120,14 @@ async function updateDisplay() {
 function getLatestTimeForDate(dateStr) {
   const dateData = data[dateStr];
   if (!dateData) return null;
-  return Object.keys(dateData).sort().reverse()[0];
+  
+  const times = Object.keys(dateData).sort((a, b) => {
+    const time24a = convertTo24Hour(a);
+    const time24b = convertTo24Hour(b);
+    return time24b.localeCompare(time24a); // Descending order (latest first)
+  });
+  
+  return times[0];
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
