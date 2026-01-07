@@ -1,34 +1,50 @@
 let data = {};
+let lastDataHash = '';
 
 async function loadData() {
-  data = await (await fetch('data.json')).json();
+  const res = await fetch('data.json', { cache: 'no-store' });
+  data = await res.json();
 }
+
+/* ================= TIME HELPERS ================= */
 
 function convertTo24Hour(time12h) {
   const [time, modifier] = time12h.split(' ');
   let [hours, minutes] = time.split(':');
-  
+
   if (hours === '12') {
     hours = '00';
   }
-  
+
   if (modifier === 'PM') {
     hours = parseInt(hours, 10) + 12;
   }
-  
+
   return `${hours}:${minutes}`;
 }
+
+function getLatestTimeForDate(dateStr) {
+  const dateData = data[dateStr];
+  if (!dateData) return null;
+
+  const times = Object.keys(dateData).sort((a, b) => {
+    return convertTo24Hour(b).localeCompare(convertTo24Hour(a));
+  });
+
+  return times[0];
+}
+
+/* ================= DROPDOWN ================= */
 
 function populateTimes(dateStr) {
   const timeSelect = document.getElementById('timeInput');
   timeSelect.innerHTML = '<option value="">Latest</option>';
-  
+
   if (data[dateStr]) {
     const times = Object.keys(data[dateStr]).sort((a, b) => {
-      const time24a = convertTo24Hour(a);
-      const time24b = convertTo24Hour(b);
-      return time24b.localeCompare(time24a); // Descending order (latest first)
+      return convertTo24Hour(b).localeCompare(convertTo24Hour(a));
     });
+
     times.forEach(time => {
       const option = document.createElement('option');
       option.value = time;
@@ -38,22 +54,24 @@ function populateTimes(dateStr) {
   }
 }
 
+/* ================= TABLE RENDER ================= */
+
 function renderTable(tbodyId, items) {
   const tbody = document.getElementById(tbodyId);
-  const sectionId = tbodyId + 'Sec';
-  const section = document.getElementById(sectionId);
-  
+  const section = document.getElementById(tbodyId + 'Sec');
+
   tbody.innerHTML = '';
-  
+
   if (!items?.length) {
     section.style.display = 'none';
     return;
   }
-  
+
   section.style.display = 'block';
-  
+
   items.forEach(item => {
     const stockClass = item.stock === 'In Stock' ? 'in-stock' : 'out-stock';
+
     tbody.innerHTML += `
       <tr>
         <td>${item.model || ''}</td>
@@ -67,18 +85,21 @@ function renderTable(tbodyId, items) {
   });
 }
 
+/* ================= MAIN UPDATE ================= */
+
 async function updateDisplay() {
   await loadData();
+
   const dateStr = document.getElementById('dateInput').value;
   const timeStr = document.getElementById('timeInput').value;
 
   if (!dateStr) return;
 
   document.getElementById('dateDisplay').textContent = dateStr;
-  
+
   let dayData = null;
   let displayTime = 'Latest';
-  
+
   if (timeStr) {
     dayData = data[dateStr]?.[timeStr];
     displayTime = timeStr;
@@ -87,13 +108,13 @@ async function updateDisplay() {
     dayData = latestTime ? data[dateStr][latestTime] : null;
     displayTime = latestTime || 'No Data';
   }
-  
-  document.getElementById('dateStatus').innerHTML = `${displayTime}`;
+
+  document.getElementById('dateStatus').textContent = displayTime;
   document.getElementById('dateStatus').className = 'date-status date-available';
-  
+
   if (dayData) {
     document.getElementById('pageNotFound').style.display = 'none';
-    
+
     renderTable('iphone', dayData.iphone || []);
     renderTable('oneplus', dayData.oneplus || []);
     renderTable('nothing', dayData.nothing || []);
@@ -109,7 +130,6 @@ async function updateDisplay() {
     renderTable('narzo', dayData.narzo || []);
     renderTable('redmi', dayData.redmi || []);
     renderTable('nokia', dayData.nokia || []);
-    
   } else {
     document.getElementById('dateStatus').className = 'date-status date-not-found';
     document.getElementById('pageNotFound').style.display = 'block';
@@ -117,47 +137,78 @@ async function updateDisplay() {
   }
 }
 
-function getLatestTimeForDate(dateStr) {
-  const dateData = data[dateStr];
-  if (!dateData) return null;
-  
-  const times = Object.keys(dateData).sort((a, b) => {
-    const time24a = convertTo24Hour(a);
-    const time24b = convertTo24Hour(b);
-    return time24b.localeCompare(time24a); // Descending order (latest first)
-  });
-  
-  return times[0];
+/* ================= HOT RELOAD ================= */
+
+function hotReload(interval = 30000) {
+  setInterval(async () => {
+    try {
+      const res = await fetch('data.json', { cache: 'no-store' });
+      const newData = await res.json();
+      const newHash = JSON.stringify(newData);
+
+      if (newHash !== lastDataHash) {
+        data = newData;
+        lastDataHash = newHash;
+        updateDisplay();
+        console.log('🔁 Hot reloaded data.json');
+      }
+    } catch (err) {
+      console.error('Hot reload error:', err);
+    }
+  }, interval);
 }
+
+/* ================= HARD RELOAD EVENTS ================= */
+
+// Reload when tab becomes active
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    updateDisplay();
+  }
+});
+
+// Manual reload (Ctrl + R without page refresh)
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey && e.key === 'r') {
+    e.preventDefault();
+    updateDisplay();
+    console.log('🔄 Manual hard reload');
+  }
+});
+
+/* ================= INIT ================= */
 
 document.addEventListener('DOMContentLoaded', async () => {
   const dateInput = document.getElementById('dateInput');
   const timeInput = document.getElementById('timeInput');
   const resetBtn = document.getElementById('resetDateBtn');
+
   const today = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
-  .toISOString()
-  .split('T')[0];
-  
+    .toISOString()
+    .split('T')[0];
+
   dateInput.value = today;
-  
-  // Event listeners
-  dateInput.onchange = async () => {
-    timeInput.value = ''; // Reset time
+
+  dateInput.onchange = () => {
+    timeInput.value = '';
     populateTimes(dateInput.value);
     updateDisplay();
   };
-  
+
   timeInput.onchange = updateDisplay;
-  
+
   resetBtn.onclick = () => {
     dateInput.value = today;
     timeInput.value = '';
     populateTimes(today);
     updateDisplay();
   };
-  
-  // Initial load
+
   await loadData();
+  lastDataHash = JSON.stringify(data);
+
   populateTimes(today);
   updateDisplay();
+
+  hotReload(); // start hot reload
 });
