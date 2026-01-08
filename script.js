@@ -86,20 +86,49 @@ function renderTable(tbodyId, items) {
 }
 
 /* ================= MAIN UPDATE ================= */
+function getLatestAvailableDate(targetDate) {
+  const availableDates = Object.keys(data).sort().reverse(); // Sort dates descending
+  // Find the first date that is less than or equal to our targetDate
+  return availableDates.find(date => date <= targetDate) || null;
+}
+
+/* ================= UPDATED MAIN UPDATE ================= */
 
 async function updateDisplay() {
   await loadData();
 
-  const dateStr = document.getElementById('dateInput').value;
-  const timeStr = document.getElementById('timeInput').value;
+  const dateInput = document.getElementById('dateInput');
+  const timeInput = document.getElementById('timeInput');
+  
+  let dateStr = dateInput.value;
+  let timeStr = timeInput.value;
 
   if (!dateStr) return;
+
+  // 1. FALLBACK LOGIC: If no data for selected date, find the previous available one
+  if (!data[dateStr]) {
+    const fallbackDate = getLatestAvailableDate(dateStr);
+    
+    if (fallbackDate) {
+      // Update the UI input value to the previous date
+      dateInput.value = fallbackDate;
+      dateStr = fallbackDate;
+      
+      // Since date changed, we must refresh the "Time" dropdown options
+      populateTimes(dateStr);
+      
+      // Reset the time selection to "Latest" for the new date
+      timeInput.value = "";
+      timeStr = ""; 
+    }
+  }
 
   document.getElementById('dateDisplay').textContent = dateStr;
 
   let dayData = null;
   let displayTime = 'Latest';
 
+  // 2. DATA SELECTION
   if (timeStr) {
     dayData = data[dateStr]?.[timeStr];
     displayTime = timeStr;
@@ -109,27 +138,20 @@ async function updateDisplay() {
     displayTime = latestTime || 'No Data';
   }
 
+  // 3. UI RENDERING
   document.getElementById('dateStatus').textContent = displayTime;
   document.getElementById('dateStatus').className = 'date-status date-available';
 
   if (dayData) {
     document.getElementById('pageNotFound').style.display = 'none';
 
-    renderTable('iphone', dayData.iphone || []);
-    renderTable('oneplus', dayData.oneplus || []);
-    renderTable('nothing', dayData.nothing || []);
-    renderTable('moto', dayData.moto || []);
-    renderTable('iqoo', dayData.iqoo || []);
-    renderTable('tecno', dayData.tecno || []);
-    renderTable('poco', dayData.poco || []);
-    renderTable('infinix', dayData.infinix || []);
-    renderTable('oppo', dayData.oppo || []);
-    renderTable('samsung', dayData.samsung || []);
-    renderTable('vivo', dayData.vivo || []);
-    renderTable('realme', dayData.realme || []);
-    renderTable('narzo', dayData.narzo || []);
-    renderTable('redmi', dayData.redmi || []);
-    renderTable('nokia', dayData.nokia || []);
+    const brands = [
+      'iphone', 'oneplus', 'nothing', 'moto', 'iqoo', 'tecno', 
+      'poco', 'infinix', 'oppo', 'samsung', 'vivo', 'realme', 
+      'narzo', 'redmi', 'nokia'
+    ];
+    brands.forEach(brand => renderTable(brand, dayData[brand] || []));
+    
   } else {
     document.getElementById('dateStatus').className = 'date-status date-not-found';
     document.getElementById('pageNotFound').style.display = 'block';
