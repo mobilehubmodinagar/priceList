@@ -198,6 +198,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   timeInput.onchange = updateDisplay;
 
   resetBtn.onclick = () => {
+    hotReload();
     dateInput.value = today;
     timeInput.value = '';
     populateTimes(today);
