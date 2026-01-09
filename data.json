@@ -17,7 +17,7 @@
     ],
     "nothing": [
       { "model": "CMF 2 Pro", "ram_storage": "8GB / 128GB", "color": "White", "price": 18100, "online_price": 19000, "stock": "In Stock" },
-      { "model": "CMF 2 Pro", "ram_storage": "8GB / 256GB", "color": "White", "price": 19100, "online_price": 21000, "stock": "In Stock" },
+      { "model": "CMF 2 Pro", "ram_storage": "8GB / 256GB", "color": "White", "price": 20100, "online_price": 21000, "stock": "In Stock" },
       { "model": "3A Lite", "ram_storage": "8GB / 128GB", "color": "White", "price": 20000, "online_price": 21000, "stock": "In Stock" },
       { "model": "3A", "ram_storage": "8GB / 128GB", "color": "White", "price": 24000, "online_price": 25000, "stock": "In Stock" },
       { "model": "3A", "ram_storage": "8GB / 256GB", "color": "WHITE", "price": 26000, "online_price": 27000, "stock": "In Stock" },
@@ -45,8 +45,8 @@
       { "model": "Curve", "ram_storage": "8GB / 256GB", "color": "", "price": null, "online_price": 20000, "stock": "Out Stock" }
     ],
     "poco": [
-      { "model": "C71", "ram_storage": "4GB / 64GB", "color": "Blue", "price": 6700, "online_price": null, "stock": "In Stock" },
-      { "model": "C71", "ram_storage": "6GB / 128GB", "color": "Black", "price": 7200, "online_price": null, "stock": "In Stock" },
+      { "model": "C71", "ram_storage": "4GB / 64GB", "color": "Blue", "price": 6700, "online_price": 6800, "stock": "In Stock" },
+      { "model": "C71", "ram_storage": "6GB / 128GB", "color": "Black", "price": 7350, "online_price": 7500, "stock": "In Stock" },
       { "model": "C75 5G", "ram_storage": "4GB / 64GB", "color": "Green", "price": 8400, "online_price": null, "stock": "In Stock" },
       { "model": "C75 5G", "ram_storage": "4GB / 128GB", "color": "Aqua", "price": null, "online_price": null, "stock": "Out Stock" },
       { "model": "M7", "ram_storage": "8GB / 128GB", "color": "Green", "price": null, "online_price": null, "stock": "Out Stock" },
@@ -55,10 +55,10 @@
     "infinix": [
       { "model": "Hot 60i", "ram_storage": "4GB / 128GB", "color": "Blue, Black", "price": 10500, "online_price": 11000, "stock": "In Stock" },
       { "model": "Hot 60 5G", "ram_storage": "6GB / 128GB", "color": "Brown", "price": 11700, "online_price": 12500, "stock": "In Stock" },
-      { "model": "Note 50X", "ram_storage": "6GB / 128GB", "color": "Green Open", "price": 12800, "online_price": 13500, "stock": "In Stock" },
+      { "model": "Note 50X", "ram_storage": "6GB / 128GB", "color": "Green Open", "price": 12900, "online_price": 13500, "stock": "In Stock" },
       { "model": "Note 50S", "ram_storage": "6GB / 128GB", "color": "Blue", "price": 17400, "online_price": 18000, "stock": "In Stock" },
       { "model": "Note 50S", "ram_storage": "8GB / 256GB", "color": "Grey", "price": null, "online_price": 21000, "stock": "Out Stock" },
-      { "model": "GT 30 (Without Kit)", "ram_storage": "8GB / 128GB", "color": "Green", "price": 18000, "online_price": null, "stock": "In Stock" },
+      { "model": "GT 30 (Without Kit)", "ram_storage": "8GB / 128GB", "color": "Green", "price": 18000, "online_price": 19500, "stock": "In Stock" },
       { "model": "GT 30 Pro 5G", "ram_storage": "8GB / 256GB", "color": "Black", "price": 24500, "online_price": 26000, "stock": "In Stock" }
     ],
     "oppo": [
@@ -76,8 +76,8 @@
       { "model": "T4 Lite", "ram_storage": "4GB / 128GB", "color": "GOLD", "price": 11700, "online_price": 12000, "stock": "In Stock" },
       { "model": "T4X 5G", "ram_storage": "6GB / 128GB", "color": "BLUE Open", "price": 14800, "online_price": 15500, "stock": "In Stock" },
       { "model": "T4X 5G", "ram_storage": "8GB / 128GB", "color": "TEAL", "price": 15800, "online_price": 16500, "stock": "In Stock" },
-      { "model": "T4X 5G", "ram_storage": "8GB / 256GB", "color": "TEAL", "price": 17900, "online_price": null, "stock": "In Stock" },
-      { "model": "T4R 5G", "ram_storage": "8GB / 128GB", "color": "BLUE", "price": 19800, "online_price": null, "stock": "In Stock" },
+      { "model": "T4X 5G", "ram_storage": "8GB / 256GB", "color": "TEAL", "price": 17900, "online_price": 18500, "stock": "In Stock" },
+      { "model": "T4R 5G", "ram_storage": "8GB / 128GB", "color": "BLUE open", "price": 19800, "online_price": 21000, "stock": "In Stock" },
       { "model": "T4 5G", "ram_storage": "8GB / 128GB", "color": "GREEN", "price": null, "online_price": 22000, "stock": "Out Stock" }
     ],
     "realme": [
@@ -105,9 +105,9 @@
     ],
         "redmi": [
       { "model": "REDMI 15 5G", "ram_storage": "6GB / 128GB", "color": "PURPLE", "price": 14500, "online_price": 16000, "stock": "In Stock" },
-      { "model": "REDMI A4", "ram_storage": "4GB / 64GB", "color": "BLACK", "price": 8700, "online_price": null, "stock": "Out Stock" },
-      { "model": "REDMI A4", "ram_storage": "4GB / 128GB", "color": "PURPLE", "price": 9100, "online_price": null, "stock": "Out Stock" },
-      { "model": "REDMI 14C 5G", "ram_storage": "4GB / 128GB", "color": "BLUE, BLACK, PURPLE", "price": 9900, "online_price": 11000, "stock": "In Stock" },
+      { "model": "REDMI A4", "ram_storage": "4GB / 64GB", "color": "BLACK", "price": 8650, "online_price": null, "stock": "Out Stock" },
+      { "model": "REDMI A4", "ram_storage": "4GB / 128GB", "color": "PURPLE", "price": 9050, "online_price": null, "stock": "Out Stock" },
+      { "model": "REDMI 14C 5G", "ram_storage": "4GB / 128GB", "color": "BLUE, BLACK, PURPLE", "price": 10000, "online_price": 11000, "stock": "In Stock" },
       { "model": "REDMI 14C 5G", "ram_storage": "6GB / 128GB", "color": "BLUE, BLACK, PURPLE", "price": 10800, "online_price": 12000, "stock": "In Stock" },  
       { "model": "REDMI NOTE 14 5G", "ram_storage": "8GB / 128GB", "color": "BLACK OPEN", "price": 15500, "online_price": 17000, "stock": "In Stock" }
     ]
