@@ -53,7 +53,7 @@
       { "model": "Hot 60i", "ram_storage": "4GB / 128GB", "color": "Blue, Black", "price": 10500, "online_price": 11000, "stock": "In Stock" },
       { "model": "Hot 60 5G", "ram_storage": "6GB / 128GB", "color": "Brown", "price": 11700, "online_price": 12500, "stock": "In Stock" },
       { "model": "Note 50X", "ram_storage": "6GB / 128GB", "color": "Green Open1️⃣", "price": 12800, "online_price": 13500, "stock": "In Stock" },
-      { "model": "Note 50S", "ram_storage": "6GB / 128GB", "color": "Blue, Grey", "price": 17400, "online_price": 18000, "stock": "In Stock" },
+      { "model": "Note 50S", "ram_storage": "6GB / 128GB", "color": "Blue", "price": 17400, "online_price": 18000, "stock": "In Stock" },
       { "model": "Note 50S", "ram_storage": "8GB / 256GB", "color": "Grey", "price": null, "online_price": 21000, "stock": "Out Stock" },
       { "model": "GT 30 (Without Kit)", "ram_storage": "8GB / 128GB", "color": "Green", "price": 18000, "online_price": null, "stock": "In Stock" },
       { "model": "GT 30 Pro 5G", "ram_storage": "8GB / 256GB", "color": "Black", "price": 24500, "online_price": 26000, "stock": "In Stock" }
