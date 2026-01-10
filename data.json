@@ -18,7 +18,7 @@
     "nothing": [
       { "model": "CMF 2 Pro", "ram_storage": "8GB / 128GB", "color": "White", "price": 18100, "online_price": 19000, "stock": "In Stock" },
       { "model": "CMF 2 Pro", "ram_storage": "8GB / 256GB", "color": "White", "price": 20100, "online_price": 21000, "stock": "In Stock" },
-      { "model": "3A Lite", "ram_storage": "8GB / 128GB", "color": "White", "price": 20000, "online_price": 21000, "stock": "In Stock" },
+      { "model": "3A Lite", "ram_storage": "8GB / 128GB", "color": "White", "price": 20000, "online_price": 22000, "stock": "In Stock" },
       { "model": "3A", "ram_storage": "8GB / 128GB", "color": "White", "price": 24000, "online_price": 25000, "stock": "In Stock" },
       { "model": "3A", "ram_storage": "8GB / 256GB", "color": "WHITE", "price": 26000, "online_price": 27000, "stock": "In Stock" },
       { "model": "3A", "ram_storage": "8GB / 256GB", "color": "BLACK", "price": 25600, "online_price": 27000, "stock": "In Stock" }
