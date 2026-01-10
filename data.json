@@ -105,6 +105,7 @@
       { "model": "NARZO 90 5G", "ram_storage": "6GB / 128GB", "color": "GOLD", "price": 16400, "online_price": 17000, "stock": "In Stock" },
       { "model": "NARZO 90 5G", "ram_storage": "8GB / 128GB", "color": "GOLD", "price": 17700, "online_price": 18500, "stock": "In Stock" }
     ],
+     "redmi": [
       { "model": "REDMI A4", "ram_storage": "4GB / 64GB", "color": "BLACK", "price": 8650, "online_price": null, "stock": "In Stock" },
       { "model": "REDMI A4", "ram_storage": "4GB / 128GB", "color": "PURPLE", "price": 9050, "online_price": null, "stock": "In Stock" },
       { "model": "REDMI 14C 5G", "ram_storage": "4GB / 128GB", "color": "BLUE, BLACK, PURPLE", "price": 10000, "online_price": 11000, "stock": "In Stock" },
