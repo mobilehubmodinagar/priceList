@@ -54,8 +54,8 @@
     "infinix": [
       { "model": "Hot 60i", "ram_storage": "4GB / 128GB", "color": "Blue, Black", "price": 10500, "online_price": 11000, "stock": "In Stock" },
       { "model": "Hot 60 5G", "ram_storage": "6GB / 128GB", "color": "Brown", "price": 11700, "online_price": 12500, "stock": "In Stock" },
-      { "model": "Note 50X", "ram_storage": "6GB / 128GB", "color": "Green Open", "price": 12900, "online_price": 13500, "stock": "In Stock" },
-      { "model": "Note 50S", "ram_storage": "6GB / 128GB", "color": "Blue open", "price": 17400, "online_price": 18000, "stock": "In Stock" },
+      { "model": "Note 50X", "ram_storage": "6GB / 128GB", "color": "Green Open", "price": 13000, "online_price": 13500, "stock": "In Stock" },
+      { "model": "Note 50S", "ram_storage": "6GB / 128GB", "color": "Blue open", "price": null, "online_price": 18000, "stock": "Out Stock" },
       { "model": "Note 50S", "ram_storage": "8GB / 256GB", "color": "Grey", "price": null, "online_price": 21000, "stock": "Out Stock" },
       { "model": "GT 30 (Without Kit)", "ram_storage": "8GB / 128GB", "color": "Green", "price": null, "online_price": 19500, "stock": "Out Stock" },
       { "model": "GT 30 Pro 5G", "ram_storage": "8GB / 256GB", "color": "Black", "price": null, "online_price": 26000, "stock": "Out Stock" }
@@ -105,10 +105,10 @@
       { "model": "NARZO 90 5G", "ram_storage": "8GB / 128GB", "color": "GOLD", "price": 17700, "online_price": 18500, "stock": "In Stock" }
     ],
      "redmi": [
-      { "model": "REDMI A4", "ram_storage": "4GB / 64GB", "color": "BLACK", "price": 8650, "online_price": null, "stock": "In Stock" },
+      { "model": "REDMI A4", "ram_storage": "4GB / 64GB", "color": "BLACK", "price": 8700, "online_price": null, "stock": "In Stock" },
       { "model": "REDMI A4", "ram_storage": "4GB / 128GB", "color": "PURPLE", "price": 9050, "online_price": null, "stock": "In Stock" },
-      { "model": "REDMI 14C 5G", "ram_storage": "4GB / 128GB", "color": "BLUE", "price": 10000, "online_price": 11000, "stock": "In Stock" },
-      { "model": "REDMI 14C 5G", "ram_storage": "6GB / 128GB", "color": "BLUE, BLACK open", "price": 10800, "online_price": 12000, "stock": "In Stock" },  
+      { "model": "REDMI 14C 5G", "ram_storage": "4GB / 128GB", "color": "BLUE", "price": 10200, "online_price": 11000, "stock": "In Stock" },
+      { "model": "REDMI 14C 5G", "ram_storage": "6GB / 128GB", "color": "BLUE, BLACK open", "price": 10900, "online_price": 12000, "stock": "In Stock" },  
        { "model": "REDMI NOTE 14 SE 5G", "ram_storage": "6GB / 128GB", "color": "RED", "price": null, "online_price": null, "stock": "Out Stock" },
       { "model": "REDMI NOTE 14 5G", "ram_storage": "8GB / 128GB", "color": "BLACK OPEN", "price": null, "online_price": null, "stock": "Out Stock" }
     ]
