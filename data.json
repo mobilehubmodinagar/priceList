@@ -24,7 +24,7 @@
       { "model": "3A Pro", "ram_storage": "8GB / 256GB", "color": "Grey", "price": 29500, "online_price": 31000, "stock": "In Stock" }
     ],
     "moto": [
-       "model": "G35 5G", "ram_storage": "4GB / 128GB", "color": "Green", "price": 10600, "online_price": 11000, "stock": "In Stock" },
+     {  "model": "G35 5G", "ram_storage": "4GB / 128GB", "color": "Green", "price": 10600, "online_price": 11000, "stock": "In Stock" },
       { "model": "G35 5G", "ram_storage": "8GB / 128GB", "color": "Green open", "price": 12600, "online_price": 13000, "stock": "In Stock" },
       { "model": "G57 Power", "ram_storage": "8GB / 128GB", "color": "Fluidity, Regatta", "price": 14400, "online_price": 15000, "stock": "In Stock" },
       { "model": "G67 Power", "ram_storage": "8GB/ 128GB", "color": "Green", "price": 15600, "online_price": 17000, "stock": "In Stock" },
