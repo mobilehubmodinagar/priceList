@@ -8,7 +8,7 @@
       { "model": "iPhone 17", "ram_storage": "128GB", "color": "White", "price": 84000, "online_price": null, "stock": "In Stock" }
     ],
     "oneplus": [
-      { "model": "CE 5", "ram_storage": "8GB / 128GB", "color": "Black", "price": 24200, "online_price": 25000, "stock": "In Stock" },
+      { "model": "CE 5", "ram_storage": "8GB / 128GB", "color": "Black, White", "price": 24200, "online_price": 25000, "stock": "In Stock" },
       { "model": "CE 5", "ram_storage": "8GB / 256GB", "color": "Blue", "price": 26200, "online_price": 27000, "stock": "In Stock" },
       { "model": "CE 5", "ram_storage": "12GB / 256GB", "color": "Black", "price": 28500, "online_price": 29000, "stock": "In Stock" },
       { "model": "Nord 5", "ram_storage": "8GB / 256GB", "color": "Dry Ice,Grey, White", "price": 32000, "online_price": 34000, "stock": "In Stock" },
