@@ -146,7 +146,7 @@ async function updateDisplay() {
     document.getElementById('pageNotFound').style.display = 'none';
 
     const brands = [
-      'iphone', 'oneplus', 'nothing', 'moto', 'iqoo','ai+', 'tecno', 
+      'iphone', 'oneplus', 'nothing', 'moto', 'iqoo', 'ai+', 'tecno', 
       'poco', 'infinix', 'oppo', 'samsung', 'vivo', 'realme', 
       'narzo', 'redmi', 'nokia'
     ];
