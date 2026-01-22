@@ -26,7 +26,7 @@
     "moto": [
      {  "model": "G35 5G", "ram_storage": "4GB / 128GB", "color": "Green", "price": 10600, "online_price": 11000, "stock": "In Stock" },
       { "model": "G35 5G", "ram_storage": "8GB / 128GB", "color": "Green open", "price": 12600, "online_price": 13000, "stock": "In Stock" },
-      { "model": "G57 Power", "ram_storage": "8GB / 128GB", "color": "Fluidity, Regatta", "price": 14400, "online_price": 15000, "stock": "In Stock" },
+      { "model": "G57 Power", "ram_storage": "8GB / 128GB", "color": "Regatta", "price": 14400, "online_price": 15000, "stock": "In Stock" },
       { "model": "G67 Power", "ram_storage": "8GB/ 128GB", "color": "Green", "price": null, "online_price": 17000, "stock": "Out Stock" },
       { "model": "G86 Power", "ram_storage": "8GB / 128GB", "color": "Sleepbound", "price": null, "online_price": 18000, "stock": "Out Stock" },
       { "model": "G96", "ram_storage": "8GB / 128GB", "color": "Ash blue, Green", "price": 17700, "online_price": 19000, "stock": "In Stock" },
