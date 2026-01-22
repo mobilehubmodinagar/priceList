@@ -43,8 +43,8 @@
       { "model": "Neo 10", "ram_storage": "8GB / 256GB", "color": "RED", "price": 35000, "online_price": 37000, "stock": "In Stock" }
     ],
      "ai+": [
-      { "model": "Nova 5G", "ram_storage": "4GB / 128GB", "color": "", "price": null, "online_price": null, "stock": "Out Stock" },
-      { "model": "Nova 5G", "ram_storage": "6GB / 128GB", "color": "", "price": null, "online_price": null, "stock": "Out Stock" }
+      { "model": "Nova 5G", "ram_storage": "6GB / 128GB", "color": "Black", "price": 8400, "online_price": 9000, "stock": "In Stock" },
+      { "model": "Nova 5G", "ram_storage": "8GB / 128GB", "color": "", "price": null, "online_price": null, "stock": "Out Stock" }
     ],
     "tecno": [
       { "model": "GO 02", "ram_storage": "4GB / 64GB", "color": "White", "price": 6900, "online_price": 7500, "stock": "In Stock" },
