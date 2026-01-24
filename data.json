@@ -71,12 +71,13 @@
       { "model": "GT 30 Pro 5G", "ram_storage": "8GB / 256GB", "color": "White", "price": 24300, "online_price": 26000, "stock": "In Stock" }
     ],
     "oppo": [
+      { "model": "Reno 14", "ram_storage": "12GB / 256GB", "color": " White", "price": 38000, "online_price": 45000, "stock": "In Stock" },
       { "model": "K13X", "ram_storage": "4GB / 128GB", "color": " Violet", "price": 12000, "online_price": 12500, "stock": "In Stock" },
       { "model": "K13X", "ram_storage": "6GB / 128GB", "color": "Blue, Violet", "price": 13000, "online_price": 14000, "stock": "In Stock" },
       { "model": "K13X", "ram_storage": "8GB / 128GB", "color": "Violet", "price": 14300, "online_price": 16000, "stock": "In Stock" },
       { "model": "K13 5G", "ram_storage": "8GB / 128GB", "color": "Purple", "price": null, "online_price": 20000, "stock": "Out Stock" },
-      { "model": "K13 5G", "ram_storage": "8GB / 256GB", "color": "Purple", "price": 20000, "online_price": 22000, "stock": "In Stock" },
-      { "model": "F31 5G", "ram_storage": "8GB / 256GB", "color": "Green", "price": 22700, "online_price": 27000, "stock": "In Stock" }
+      { "model": "K13 5G", "ram_storage": "8GB / 256GB", "color": "Purple", "price": 20500, "online_price": 22000, "stock": "In Stock" },
+      { "model": "F31 5G", "ram_storage": "8GB / 256GB", "color": "Green", "price": 23000, "online_price": 29000, "stock": "In Stock" }
     ],
     "samsung": [
       { "model": "M17 5G", "ram_storage": "6GB / 128GB", "color": "Black", "price": 14500, "online_price": 16000, "stock": "In Stock" },
