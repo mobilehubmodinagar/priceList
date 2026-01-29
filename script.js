@@ -148,7 +148,7 @@ async function updateDisplay() {
     const brands = [
       'iphone', 'oneplus', 'nothing', 'moto', 'iqoo', 'ai+', 'tecno', 
       'poco', 'infinix', 'oppo', 'samsung', 'vivo', 'realme', 
-      'narzo', 'redmi', 'nokia'
+      'narzo', 'redmi', 'nokia', 'accessories'
     ];
     brands.forEach(brand => renderTable(brand, dayData[brand] || []));
     
