@@ -134,12 +134,12 @@
       { "model": "REDMI NOTE 15 5G", "ram_storage": "8GB / 128GB", "color": "Black open,Blue ,Purple", "price": 20300, "online_price": 23000, "stock": "In Stock" }
     ]
       "accessories": [
-      { "model": "APPLE ADAPTER 20 WATT , "price": null, "stock": "Out Stock" },
+      { "model": "APPLE ADAPTER 20 WATT" , "price": null, "stock": "Out Stock" },
       { "model": "CMF 33 WATT ADAPTER", "price": 800, "stock": "In Stock" },
       { "model": "ONEPLUS Z3", "price": 1350, "stock": "In Stock" },
       { "model": "REALME NECKBAND 3 NEO", "price": null, "stock": "In Stock" },
-      { "model": "REALME NECKBAND 5 ANC , "price": null, "stock": "In Stock" },
-      { "model": "INFINIX GAMING KIT , "price": null, "stock": "In Stock" }
+      { "model": "REALME NECKBAND 5 ANC" , "price": null, "stock": "In Stock" },
+      { "model": "INFINIX GAMING KIT" , "price": null, "stock": "In Stock" }
     ]
    }
     },
