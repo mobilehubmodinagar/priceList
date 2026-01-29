@@ -38,7 +38,7 @@
       { "model": "Edge 70", "ram_storage": "8GB / 256GB", "color": "Lily Pad", "price": 29300, "online_price": 30000, "stock": "In Stock" }
     ],
     "iqoo": [
-      { "model": "Z10X", "ram_storage": "6GB / 128GB", "color": "Ultramarine", "price": 14400, "online_price": 15000, "stock": "In Stock" },
+      { "model": "Z10X", "ram_storage": "6GB / 128GB", "color": "Ultra marine", "price": 14400, "online_price": 15000, "stock": "In Stock" },
       { "model": "Z10R", "ram_storage": "8GB / 128GB", "color": "Aqua", "price": 19900, "online_price": 21000, "stock": "In Stock" },
       { "model": "Z10 5G", "ram_storage": "8GB / 128GB", "color": "Black", "price": null, "online_price": 23000, "stock": "Out Stock" },
       { "model": "Neo 10R", "ram_storage": "12GB / 256GB", "color": "Titanium", "price": 30600, "online_price": 32000, "stock": "In Stock" },
@@ -131,7 +131,7 @@
       { "model": "REDMI 15C 5G", "ram_storage": "4GB / 128GB", "color": "Purple", "price": 11600, "online_price": 12500, "stock": "In Stock" },
       { "model": "REDMI 15C 5G", "ram_storage": "6GB / 128GB", "color": "Purple", "price": 13000, "online_price": 14000, "stock": "In Stock" },
       { "model": "REDMI 15 5G", "ram_storage": "8GB / 128GB", "color": "Purple", "price": 15300, "online_price": 17000, "stock": "In Stock" },
-      { "model": "REDMI NOTE 15 5G", "ram_storage": "8GB / 128GB", "color": "Black open,Blue ,Purple", "price": 20300, "online_price": 23000, "stock": "In Stock" }
+      { "model": "REDMI NOTE 15 5G", "ram_storage": "8GB / 128GB", "color": "Black open ,Blue ,Purple", "price": 20300, "online_price": 23000, "stock": "In Stock" }
     ],
       "accessories": [
     { "model": "APPLE ADAPTER 20 WATT", "ram_storage": "", "color": "", "price": null, "online_price": null, "stock": "In Stock" },
