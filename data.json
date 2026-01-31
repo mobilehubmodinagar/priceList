@@ -91,6 +91,7 @@
       { "model": "T4X 5G", "ram_storage": "8GB / 128GB", "color": "TEAL", "price": 16100, "online_price": 16500, "stock": "In Stock" },
       { "model": "T4X 5G", "ram_storage": "8GB / 256GB", "color": "TEAL", "price": 18100, "online_price": 18500, "stock": "In Stock" },
       { "model": "T4R 5G", "ram_storage": "8GB / 128GB", "color": "BLUE", "price": 19800, "online_price": 21000, "stock": "In Stock" },
+      { "model": "T4R 5G", "ram_storage": "8GB / 256GB", "color": "WHITE", "price": 21700, "online_price": 23000, "stock": "In Stock" },
       { "model": "T4 5G", "ram_storage": "8GB / 128GB", "color": "Green", "price": 21200, "online_price": 23000, "stock": "In Stock" }
     ],
     "realme": [
