@@ -104,7 +104,7 @@
       { "model": "15X 5G", "ram_storage": "8GB / 128GB", "color": "MARINE BLUE", "price": 17200, "online_price": 20000, "stock": "In Stock" },
       { "model": "15T 5G", "ram_storage": "8GB / 128GB", "color": "BLACK", "price": 19000, "online_price": 23000, "stock": "In Stock" },
       { "model": "P3 LITE 5G", "ram_storage": "4GB / 128GB", "color": "Purple", "price": null, "online_price": 12000, "stock": "In Stock" },
-      { "model": "P3 LITE 5G", "ram_storage": "6GB / 128GB", "color": "WHITE", "price": 12200, "online_price": 13000, "stock": "In Stock" },
+      { "model": "P3 LITE 5G", "ram_storage": "6GB / 128GB", "color": "WHITE", "price": 12300, "online_price": 13000, "stock": "In Stock" },
       { "model": "P3X 5G", "ram_storage": "6GB / 128GB", "color": "SILVER", "price": null, "online_price": 13000, "stock": "Out Stock" },
       { "model": "P3X 5G", "ram_storage": "8GB / 128GB", "color": "SILVER", "price": 13600, "online_price": 14000, "stock": "In Stock" },
       { "model": "P4X 5G", "ram_storage": "6GB / 128GB", "color": "SILVER, GREEN", "price": 14500, "online_price": 16000, "stock": "In Stock" },
