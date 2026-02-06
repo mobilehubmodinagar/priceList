@@ -10,16 +10,16 @@
     ],
     "oneplus": [
       { "model": "CE 5", "ram_storage": "8GB / 128GB", "color": "WHITE, BLUE, BLACK", "price": 24400, "online_price": 25000, "stock": "In Stock" },
-      { "model": "CE 5", "ram_storage": "8GB / 256GB", "color": "BLACK", "price": 26400, "online_price": 27000, "stock": "In Stock" },
+      { "model": "CE 5", "ram_storage": "8GB / 256GB", "color": "BLACK, WHITE", "price": 26400, "online_price": 27000, "stock": "In Stock" },
       { "model": "CE 5", "ram_storage": "12GB / 256GB", "color": "Black", "price": null, "online_price": 29000, "stock": "Out Stock" },
       { "model": "Nord 5", "ram_storage": "8GB / 256GB", "color": "Dry Ice", "price": 32000, "online_price": 34000, "stock": "In Stock" },
       { "model": "OnePlus 13S", "ram_storage": "12GB / 256GB", "color": "Black", "price": 50000, "online_price": 55000, "stock": "In Stock" },
       { "model": "OnePlus 15R", "ram_storage": "12GB / 256GB", "color": "Mint", "price": 45000, "online_price": 48000, "stock": "In Stock" }
     ],
     "nothing": [
-      { "model": "CMF 2 Pro", "ram_storage": "8GB / 128GB", "color": "Black", "price": null, "online_price": 19000, "stock": "Out Stock" },
+      { "model": "CMF 2 Pro", "ram_storage": "8GB / 128GB", "color": "Black", "price": 17900, "online_price": 19000, "stock": "In Stock" },
       { "model": "CMF 2 Pro", "ram_storage": "8GB / 256GB", "color": "White", "price": null, "online_price": 21000, "stock": "Out Stock" },
-      { "model": "3A Lite", "ram_storage": "8GB / 128GB", "color": "White", "price": null, "online_price": 22000, "stock": "Out Stock" },
+      { "model": "3A Lite", "ram_storage": "8GB / 128GB", "color": "White", "price": 20000, "online_price": 22000, "stock": "In Stock" },
       { "model": "3A", "ram_storage": "8GB / 128GB", "color": "White", "price": null, "online_price": 25000, "stock": "Out Stock" },
       { "model": "3A", "ram_storage": "8GB / 256GB", "color": "BLACK", "price": null, "online_price": 27000, "stock": "Out Stock" },
       { "model": "3A Pro", "ram_storage": "8GB / 256GB", "color": "Black", "price": 29500, "online_price": 32000, "stock": "In Stock" }
@@ -51,13 +51,13 @@
     "tecno": [
       { "model": "GO 02", "ram_storage": "4GB / 64GB", "color": "Green, Black, Grey", "price": 7200, "online_price": 7500, "stock": "In Stock" },
       { "model": "GO 5G", "ram_storage": "4GB / 128GB", "color": "Black", "price": 10000, "online_price": 11000, "stock": "In Stock" },
-      { "model": "Curve", "ram_storage": "8GB / 128GB", "color": "Silver", "price": 16700, "online_price": 18000, "stock": "In Stock" },
+      { "model": "Curve", "ram_storage": "8GB / 128GB", "color": "SILVER, BLACK", "price": 16700, "online_price": 18000, "stock": "In Stock" },
       { "model": "Curve", "ram_storage": "8GB / 256GB", "color": "Black", "price": 18000, "online_price": 20000, "stock": "In Stock" }
     ],
     "poco": [
       { "model": "C71", "ram_storage": "4GB / 64GB", "color": "Gold", "price": 7200, "online_price": null, "stock": "In Stock" },
       { "model": "C71", "ram_storage": "6GB / 128GB", "color": "Black", "price": null, "online_price": null, "stock": "Out Stock" },
-      { "model": "C75 5G", "ram_storage": "4GB / 64GB", "color": "Green", "price": 8650, "online_price": null, "stock": "In Stock" },
+      { "model": "C75 5G", "ram_storage": "4GB / 64GB", "color": "Green OPEN", "price": 8650, "online_price": null, "stock": "In Stock" },
       { "model": "C75 5G", "ram_storage": "4GB / 128GB", "color": "Green", "price": null, "online_price": null, "stock": "Out Stock" },
       { "model": "M7", "ram_storage": "6GB / 128GB", "color": "BLUE", "price": 10700, "online_price": null, "stock": "In Stock" },
       { "model": "M7 Plus", "ram_storage": "4GB / 128GB", "color": "Silver", "price": null, "online_price": null, "stock": "Out Stock" },
@@ -74,9 +74,10 @@
     ],
     "oppo": [
       { "model": "K13X", "ram_storage": "4GB / 128GB", "color": " Violet", "price": 12000, "online_price": 12500, "stock": "In Stock" },
-      { "model": "K13X", "ram_storage": "6GB / 128GB", "color": "Blue, Violet", "price": 13400, "online_price": 14000, "stock": "In Stock" },
+      { "model": "K13X", "ram_storage": "6GB / 128GB", "color": "Violet", "price": 13400, "online_price": 14000, "stock": "In Stock" },
       { "model": "K13X", "ram_storage": "8GB / 128GB", "color": "Violet Open", "price": 14700, "online_price": 16000, "stock": "In Stock" },
       { "model": "K13 5G", "ram_storage": "8GB / 128GB", "color": "Purple", "price": 20500, "online_price": 23000, "stock": "In Stock" },
+      { "model": "K13 5G", "ram_storage": "8GB / 256GB", "color": "Purple OPEN", "price": 22500, "online_price": 25000, "stock": "In Stock" },
       { "model": "K13 5G", "ram_storage": "8GB / 256GB", "color": "Purple OPEN", "price": 22500, "online_price": 25000, "stock": "In Stock" }
     ],
     "samsung": [
@@ -107,15 +108,17 @@
       { "model": "P3 LITE 5G", "ram_storage": "6GB / 128GB", "color": "WHITE", "price": 12300, "online_price": 13000, "stock": "In Stock" },
       { "model": "P3X 5G", "ram_storage": "6GB / 128GB", "color": "SILVER", "price": null, "online_price": 13000, "stock": "Out Stock" },
       { "model": "P3X 5G", "ram_storage": "8GB / 128GB", "color": "SILVER", "price": 13600, "online_price": 14000, "stock": "In Stock" },
-      { "model": "P4X 5G", "ram_storage": "6GB / 128GB", "color": "SILVER", "price": null, "online_price": 16000, "stock": "Out Stock" },
+      { "model": "P4X 5G", "ram_storage": "6GB / 128GB", "color": "GREEN", "price": 15000, "online_price": 16000, "stock": "Out Stock" },
       { "model": "P4X 5G", "ram_storage": "8GB / 128GB", "color": "SILVER, GREEN", "price": 16500, "online_price": 17500, "stock": "In Stock" },
       { "model": "P4X 5G", "ram_storage": "8GB / 256GB", "color": "SILVER", "price": null, "online_price": 19500, "stock": "Out Stock" },
       { "model": "P4 5G", "ram_storage": "6GB / 128GB", "color": "GREY", "price": 19000, "online_price": 20000, "stock": "In Stock" },
       { "model": "P4 5G", "ram_storage": "8GB / 128GB", "color": "GREY", "price": 21000, "online_price": 22000, "stock": "In Stock" },
+      { "model": "P4 POWER 5G", "ram_storage": "8GB / 256GB", "color": "ORANGE, BLUE", "price": 26500, "online_price": 28000, "stock": "In Stock" },
       { "model": "REALME 11 5G", "ram_storage": "8GB / 256GB", "color": "GOLD", "price": 16000, "online_price": 20000, "stock": "In Stock" }
     ],
        "narzo": [
-      { "model": "Narzo 80 Lite", "ram_storage": "6GB / 128GB", "color": "PURPLE", "price": 11900, "online_price": 12500, "stock": "In Stock" },
+      { "model": "Narzo 80 Lite", "ram_storage": "4GB / 128GB", "color": "PURPLE", "price": 10900, "online_price": 11500, "stock": "In Stock" },
+      { "model": "Narzo 80 Lite", "ram_storage": "6GB / 128GB", "color": "PURPLE, BLACK", "price": 11900, "online_price": 12500, "stock": "In Stock" },
       { "model": "Narzo 90x 5G", "ram_storage": "6GB / 128GB", "color": "Flash Blue", "price": 13200, "online_price": 14000, "stock": "In Stock" },
       { "model": "NARZO 90X 5G", "ram_storage": "8GB / 128GB", "color": "Nitro Blue", "price": 14500, "online_price": 15500, "stock": "In Stock" },
       { "model": "NARZO 90 5G", "ram_storage": "6GB / 128GB", "color": "GOLD, BLACK", "price": 16300, "online_price": 17000, "stock": "In Stock" },
@@ -123,7 +126,7 @@
     ],
      "redmi": [
       { "model": "REDMI A5", "ram_storage": "3GB / 64GB", "color": "BLACK", "price": null, "online_price": 7800, "stock": "Out Stock" },
-      { "model": "REDMI A4 5G", "ram_storage": "4GB / 64GB", "color": "BLACK", "price": null, "online_price": null, "stock": "Out Stock" },
+      { "model": "REDMI A4 5G", "ram_storage": "4GB / 64GB", "color": "PURPLE", "price": 9300, "online_price": null, "stock": "In Stock" },
       { "model": "REDMI A4 5G", "ram_storage": "4GB / 128GB", "color": "PURPLE, Black", "price": 9700, "online_price": null, "stock": "In Stock" },
       { "model": "REDMI 14C 5G", "ram_storage": "4GB / 128GB", "color": "Purple, BLUE", "price": 10700, "online_price": 11000, "stock": "In Stock" },
       { "model": "REDMI 14C 5G", "ram_storage": "6GB / 128GB", "color": "BLUE, BLACK open, Purple", "price": 11300, "online_price": 12000, "stock": "In Stock" },  
@@ -132,7 +135,7 @@
       { "model": "REDMI 15C 5G", "ram_storage": "4GB / 128GB", "color": "Purple", "price": 11600, "online_price": 12500, "stock": "In Stock" },
       { "model": "REDMI 15C 5G", "ram_storage": "6GB / 128GB", "color": "Black", "price": 13200, "online_price": 14000, "stock": "In Stock" },
       { "model": "REDMI 15 5G", "ram_storage": "8GB / 128GB", "color": "Purple", "price": 15300, "online_price": 17000, "stock": "In Stock" },
-      { "model": "REDMI NOTE 15 5G", "ram_storage": "8GB / 128GB", "color": "Black open ,Blue ,Purple", "price": 20300, "online_price": 23000, "stock": "In Stock" }
+      { "model": "REDMI NOTE 15 5G", "ram_storage": "8GB / 128GB", "color": "Purple", "price": 20300, "online_price": 23000, "stock": "In Stock" }
     ],
       "accessories": [
     { "model": "CMF 33 WATT ADAPTER", "ram_storage": "", "color": "", "price": null, "online_price": null, "stock": "In Stock" },
