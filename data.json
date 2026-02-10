@@ -121,7 +121,7 @@
       { "model": "Narzo 80 Lite", "ram_storage": "6GB / 128GB", "color": "PURPLE, BLACK", "price": 11900, "online_price": 12500, "stock": "In Stock" },
       { "model": "Narzo 90x 5G", "ram_storage": "6GB / 128GB", "color": "Flash Blue", "price": 13200, "online_price": 14000, "stock": "In Stock" },
       { "model": "NARZO 90X 5G", "ram_storage": "8GB / 128GB", "color": "Nitro Blue", "price": 14500, "online_price": 15500, "stock": "In Stock" },
-      { "model": "NARZO 90 5G", "ram_storage": "6GB / 128GB", "color": "GOLD, BLACK", "price": 16300, "online_price": 17000, "stock": "In Stock" },
+      { "model": "NARZO 90 5G", "ram_storage": "6GB / 128GB", "color": "GOLD, BLACK", "price": null, "online_price": 17000, "stock": "Out Stock" },
       { "model": "NARZO 90 5G", "ram_storage": "8GB / 128GB", "color": "GOLD", "price": 17700, "online_price": 18500, "stock": "In Stock" }
     ],
      "redmi": [
