@@ -61,7 +61,7 @@
       { "model": "C71", "ram_storage": "6GB / 128GB", "color": "Black", "price": null, "online_price": null, "stock": "Out Stock" },
       { "model": "C75 5G", "ram_storage": "4GB / 64GB", "color": "Green, Silver", "price": 8700, "online_price": null, "stock": "In Stock" },
       { "model": "C75 5G", "ram_storage": "4GB / 128GB", "color": "Green", "price": null, "online_price": null, "stock": "Out Stock" },
-      { "model": "M7", "ram_storage": "6GB / 128GB", "color": "BLUE", "price": 10800, "online_price": null, "stock": "In Stock" },
+      { "model": "M7", "ram_storage": "6GB / 128GB", "color": "BLUE", "price": null, "online_price": null, "stock": "Out Stock" },
       { "model": "M7 Plus", "ram_storage": "4GB / 128GB", "color": "Silver", "price": null, "online_price": null, "stock": "Out Stock" },
       { "model": "M8", "ram_storage": "8GB / 128GB", "color": "", "price": 18800, "online_price": 20000, "stock": "In Stock" }
     ],
