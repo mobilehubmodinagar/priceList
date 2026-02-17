@@ -113,7 +113,7 @@
       { "model": "P4X 5G", "ram_storage": "6GB / 128GB", "color": "GREEN", "price": 15000, "online_price": 16000, "stock": "In Stock" },
       { "model": "P4X 5G", "ram_storage": "8GB / 128GB", "color": "SILVER, GREEN", "price": 16500, "online_price": 17500, "stock": "In Stock" },
       { "model": "P4X 5G", "ram_storage": "8GB / 256GB", "color": "SILVER", "price": null, "online_price": 19500, "stock": "Out Stock" },
-      { "model": "P4 5G", "ram_storage": "6GB / 128GB", "color": "BLUE, GREY", "price": 19000, "online_price": 20000, "stock": "In Stock" },
+      { "model": "P4 5G", "ram_storage": "6GB / 128GB", "color": "GREY", "price": 19000, "online_price": 20000, "stock": "In Stock" },
       { "model": "P4 5G", "ram_storage": "8GB / 128GB", "color": "BLUE", "price": 20500, "online_price": 22000, "stock": "In Stock" },
       { "model": "P4 POWER 5G", "ram_storage": "8GB / 256GB", "color": "ORANGE, BLUE, Silver", "price": 26500, "online_price": 28000, "stock": "In Stock" },
       { "model": "REALME 11 5G", "ram_storage": "8GB / 256GB", "color": "GOLD", "price": 16000, "online_price": 20000, "stock": "In Stock" }
