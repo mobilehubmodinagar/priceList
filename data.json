@@ -101,7 +101,7 @@
       { "model": "16 Pro+", "ram_storage": "8GB / 128GB", "color": "Gold", "price": 36500, "online_price": 44000, "stock": "In Stock" },
       { "model": "16 Pro+", "ram_storage": "8GB / 256GB", "color": "Gold", "price": null, "online_price": 46000, "stock": "Out Stock" },
       { "model": "C71", "ram_storage": "4GB / 64GB", "color": "BLUE", "price": null, "online_price": 8600, "stock": "Out Stock" },
-      { "model": "C73 5G", "ram_storage": "4GB / 64GB", "color": "Black", "price": 11200, "online_price": 12000, "stock": "In Stock" },
+      { "model": "C73 5G", "ram_storage": "4GB / 64GB", "color": "Black", "price": null, "online_price": 12000, "stock": "Out Stock" },
       { "model": "C73 5G", "ram_storage": "4GB / 128GB", "color": "GREEN", "price": 12200, "online_price": 13000, "stock": "In Stock" },
       { "model": "15X 5G", "ram_storage": "6GB / 128GB", "color": "MARINE BLUE", "price": 16200, "online_price": 19000, "stock": "In Stock" },
       { "model": "15X 5G", "ram_storage": "8GB / 128GB", "color": "MARINE BLUE", "price": null, "online_price": 20000, "stock": "Out Stock" },
