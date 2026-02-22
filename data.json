@@ -78,9 +78,11 @@
     "oppo": [
       { "model": "K13X", "ram_storage": "4GB / 128GB", "color": " Violet", "price": null, "online_price": null, "stock": "Out Stock" },
       { "model": "K13X", "ram_storage": "6GB / 128GB", "color": "Violet", "price": null, "online_price": null, "stock": "Out Stock" },
-      { "model": "K13X", "ram_storage": "8GB / 128GB", "color": "Violet Open", "price": 14800, "online_price": null, "stock": "In Stock" },
-      { "model": "K13 5G", "ram_storage": "8GB / 128GB", "color": "Black", "price": 18300, "online_price": 23000, "stock": "In Stock" },
-      { "model": "K13 5G", "ram_storage": "8GB / 256GB", "color": "Purple OPEN", "price": null, "online_price": 25000, "stock": "Out Stock" },
+      { "model": "K13X", "ram_storage": "8GB / 128GB", "color": "Violet", "price": 14200, "online_price": 15000, "stock": "In Stock" },
+      { "model": "K13 5G", "ram_storage": "8GB / 128GB", "color": "Black", "price": 18300, "online_price": 19000, "stock": "In Stock" },
+      { "model": "K13 5G", "ram_storage": "8GB / 256GB", "color": "Purple", "price": 20000, "online_price": 21000, "stock": "In Stock" },
+      { "model": "K14X 5G", "ram_storage": "4GB / 128GB", "color": "ICE BLUE, VIOLET", "price": 13500, "online_price": 15000, "stock": "In Stock" },
+      { "model": "K14X 5G", "ram_storage": "6GB / 128GB", "color": "ICE BLUE, VIOLET", "price": 15500, "online_price": 17000, "stock": "In Stock" },
       { "model": "RENO 14 5G", "ram_storage": "12GB / 256GB", "color": "White", "price": 36500, "online_price": 45000, "stock": "In Stock" }
     ],
     "samsung": [
