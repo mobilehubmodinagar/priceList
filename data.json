@@ -2,10 +2,10 @@
     "2026-02-24":{
              "09:00 AM":{
    "iphone": [
-    //  { "model": "iPhone 13", "ram_storage": "128GB", "color": "White", "price": null, "online_price": null, "stock": "Out Stock" },
-    //  { "model": "iPhone 15", "ram_storage": "128GB", "color": "Blue", "price": null, "online_price": null, "stock": "Out Stock" },
-   //   { "model": "iPhone 16", "ram_storage": "128GB", "color": "White", "price": null, "online_price": null, "stock": "Out Stock" },
-    //  { "model": "iPhone 17", "ram_storage": "256GB", "color": "", "price": null, "online_price": null, "stock": "Out Stock" }
+    /*  { "model": "iPhone 13", "ram_storage": "128GB", "color": "White", "price": null, "online_price": null, "stock": "Out Stock" },*/
+    /*  { "model": "iPhone 15", "ram_storage": "128GB", "color": "Blue", "price": null, "online_price": null, "stock": "Out Stock" },*/
+   /*   { "model": "iPhone 16", "ram_storage": "128GB", "color": "White", "price": null, "online_price": null, "stock": "Out Stock" },*/
+    /*  { "model": "iPhone 17", "ram_storage": "256GB", "color": "", "price": null, "online_price": null, "stock": "Out Stock" }*/
     ],
     "oneplus": [
       { "model": "CE 5", "ram_storage": "8GB / 128GB", "color": "WHITE", "price": 24400, "online_price": 25000, "stock": "In Stock" },
