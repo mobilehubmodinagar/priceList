@@ -1,5 +1,5 @@
 { 
-    "2026-02-25":{
+    "2026-02-26":{
              "12:01 AM":{
    "iphone": [
      { "model": "iPhone 15", "ram_storage": "128GB", "color": "Blue", "price": null, "online_price": null, "stock": "Out Stock" },
@@ -15,7 +15,7 @@
     ],
     "nothing": [
       { "model": "CMF 2 Pro", "ram_storage": "8GB / 128GB", "color": "GREEN", "price": null, "online_price": 18000, "stock": "Out Stock" },
-      { "model": "CMF 2 Pro", "ram_storage": "8GB / 256GB", "color": "BLACK", "price": 19800, "online_price": 20000, "stock": "In Stock" },
+      { "model": "CMF 2 Pro", "ram_storage": "8GB / 256GB", "color": "BLACK", "price": null, "online_price": 20000, "stock": "Out Stock" },
       { "model": "3A Lite", "ram_storage": "8GB / 128GB", "color": "White", "price": null, "online_price": 22000, "stock": "Out Stock" },
       { "model": "3A Lite", "ram_storage": "8GB / 256GB", "color": "White", "price": 21800, "online_price": 24000, "stock": "In Stock" },
       { "model": "3A Pro", "ram_storage": "8GB / 256GB", "color": "Black", "price": 30000, "online_price": 32000, "stock": "In Stock" }
