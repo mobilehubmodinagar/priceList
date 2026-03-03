@@ -42,7 +42,7 @@
     ],
      "ai+": [
       { "model": "Pulse 4G", "ram_storage": "6GB / 128GB", "color": "Blue, Green", "price": 7500, "online_price": null, "stock": "In Stock" },
-      { "model": "Nova 5G", "ram_storage": "8GB / 128GB", "color": "Pink", "price": 9600, "online_price": null, "stock": "In Stock" }
+      { "model": "Nova 5G", "ram_storage": "8GB / 128GB", "color": "Pink", "price": 10100, "online_price": null, "stock": "In Stock" }
     ],
     "tecno": [
       { "model": "30C 5G", "ram_storage": "8GB / 128GB", "color": "BLUE", "price": 11500, "online_price": 13000, "stock": "In Stock" },
