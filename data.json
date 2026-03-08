@@ -27,8 +27,8 @@
       { "model": "G67 Power", "ram_storage": "8GB/ 128GB", "color": "Blue", "price": 15500, "online_price": 17000, "stock": "In Stock" },
       { "model": "G96", "ram_storage": "8GB / 128GB", "color": "Dres blue ,Green, Orchid, Ash blue", "price": 17600, "online_price": 19000, "stock": "In Stock" },
       { "model": "G96", "ram_storage": "8GB / 256GB", "color": "Ash Blue", "price": null, "online_price": 20000, "stock": "Out Stock" },
-      { "model": "60 Fusion", "ram_storage": "8GB / 128GB", "color": "Amazonite, Mykonos", "price": 19700, "online_price": 21000, "stock": "In Stock" },
-      { "model": "60 Fusion", "ram_storage": "8GB / 256GB", "color": "Mykonos, Amazonite, Slipstream", "price": 21600, "online_price": 23000, "stock": "Out Stock" },
+      { "model": "60 Fusion", "ram_storage": "8GB / 128GB", "color": "Mykonos", "price": 19700, "online_price": 21000, "stock": "In Stock" },
+      { "model": "60 Fusion", "ram_storage": "8GB / 256GB", "color": "Mykonos, Slipstream", "price": 21600, "online_price": 23000, "stock": "In Stock" },
       { "model": "60 Fusion", "ram_storage": "12GB / 256GB", "color": "Zephyr, Mykonos", "price": 23600, "online_price": 25000, "stock": "In Stock" },
       { "model": "60 Stylus", "ram_storage": "8GB / 256GB", "color": "Surf The Web", "price": 18800, "online_price": 20000, "stock": "In Stock" },
       { "model": "Edge 70 Fusion", "ram_storage": "12GB / 256GB", "color": "Black", "price": 32000, "online_price": 33000, "stock": "In Stock" },
@@ -9826,29 +9826,4 @@
       { "model": "15X 5G", "ram_storage": "6GB / 128GB", "color": "MARINE BLUE", "price": 14800, "online_price": 17000, "stock": "In Stock" },
       { "model": "15X 5G", "ram_storage": "8GB / 128GB", "color": "MARINE BLUE", "price": 15800, "online_price": 18000, "stock": "In Stock" },
       { "model": "15T 5G", "ram_storage": "8GB / 256GB", "color": "SILK BLUE", "price": 20500, "online_price": 25000, "stock": "In Stock" },
-      { "model": "P3 LITE 5G", "ram_storage": "4GB / 128GB", "color": "Purple", "price": null, "online_price": 12000, "stock": "Out Stock" },
-      { "model": "P3 LITE 5G", "ram_storage": "6GB / 128GB", "color": "WHITE", "price": null, "online_price": 13000, "stock": "Out Stock" },
-      { "model": "P3X 5G", "ram_storage": "6GB / 128GB", "color": "PINK, SILVER", "price": 12600, "online_price": 13000, "stock": "In Stock" },
-      { "model": "P3X 5G", "ram_storage": "8GB / 128GB", "color": "SILVER", "price": 13600, "online_price": 14000, "stock": "In Stock" },
-      { "model": "P4X 5G", "ram_storage": "6GB / 128GB", "color": "GREEN", "price": 14500, "online_price": 16000, "stock": "In Stock" },
-      { "model": "P4X 5G", "ram_storage": "8GB / 128GB", "color": "SILVER", "price": 16000, "online_price": 17500, "stock": "In Stock" },
-      { "model": "P4X 5G", "ram_storage": "8GB / 256GB", "color": "SILVER", "price": 18000, "online_price": 19500, "stock": "In Stock" },
-      { "model": "P4 5G", "ram_storage": "6GB / 128GB", "color": "BLUE, GREY OPEN", "price": 17000, "online_price": 18500, "stock": "In Stock" },
-      { "model": "REALME 11 5G", "ram_storage": "8GB / 256GB", "color": "GOLD", "price": 16000, "online_price": 20000, "stock": "In Stock" }
-    ],
-       "narzo": [
-      { "model": "Narzo 80 Lite", "ram_storage": "6GB / 128GB", "color": "BLUE", "price": 11700, "online_price": 12500, "stock": "In Stock" },
-      { "model": "Narzo 90x 5G", "ram_storage": "6GB / 128GB", "color": "BLUE", "price": 12700, "online_price": 14000, "stock": "In Stock" },
-      { "model": "NARZO 90X 5G", "ram_storage": "8GB / 128GB", "color": "PURPLE", "price": 14300, "online_price": 15500, "stock": "In Stock" }
-    ],
-        "redmi": [
-      { "model": "REDMI 15 5G", "ram_storage": "6GB / 128GB", "color": "PURPLE", "price": 14300, "online_price": 16000, "stock": "In Stock" },
-      { "model": "REDMI A4", "ram_storage": "4GB / 64GB", "color": "PURPLE", "price": null, "online_price": null, "stock": "Out Stock" },
-      { "model": "REDMI A4", "ram_storage": "4GB / 128GB", "color": "BLUE", "price": null, "online_price": null, "stock": "Out Stock" },
-      { "model": "REDMI 14C 5G", "ram_storage": "4GB / 128GB", "color": "BLUE, BLACK, PURPLE", "price": 9800, "online_price": 11000, "stock": "In Stock" },
-      { "model": "REDMI 14C 5G", "ram_storage": "6GB / 128GB", "color": "BLUE, BLACK, PURPLE", "price": 10700, "online_price": 12000, "stock": "In Stock" },  
-      { "model": "REDMI NOTE 14 5G", "ram_storage": "8GB / 128GB", "color": "BLACK OPEN", "price": 15500, "online_price": 17000, "stock": "In Stock" }
-    ]
-    }
-    }
-}
+      { "model": "P3 LITE 5G", "ram_storage": "4GB / 128GB", "color": "Purple", "price": null, 
