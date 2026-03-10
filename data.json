@@ -2,6 +2,7 @@
  "2026-03-10":{
          "08:00 AM":{
    "iphone": [
+          { "model": "IPHONE", "ram_storage": "", "color": "", "price": null, "online_price": null, "stock": "Out Stock" }
         ],
     "oneplus": [
       { "model": "CE 5", "ram_storage": "8GB / 128GB", "color": "BLUE, WHITE OPEN", "price": 24500, "online_price": 25000, "stock": "In Stock" },
