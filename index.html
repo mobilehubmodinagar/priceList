@@ -4,30 +4,46 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Price List - Mobile Hub</title>
+<meta name="description" content="Mobile Hub live price list with latest updates across smartphone brands and accessories.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-<header>
-<h1>Mobile Hub</h1>
-<div class="contact">Mobile: 8439588304 | Ayush Jindal</div>
-<h4>Mobile market, Adarsh Nagar, Modinagar</h4>
-<h5>(Abhishek-7417828942, Shrikant-9560519459, Aasif-9045266461)</h5>
+<div class="page-bg" aria-hidden="true">
+   <div class="bg-orb orb-a"></div>
+   <div class="bg-orb orb-b"></div>
+   <div class="bg-grid"></div>
+</div>
+
+<main class="container">
+<header class="hero">
+   <div class="hero-copy">
+      <p class="eyebrow">Live Retail Dashboard</p>
+      <h1>Mobile Hub</h1>
+      <p class="contact">Mobile: 8439588304 | Ayush Jindal</p>
+      <p class="address">Mobile market, Adarsh Nagar, Modinagar</p>
+      <p class="contact">(Abhishek- 7417828942, Shrikant- 9560519459, Aasif- 9045266461)</p>
+   </div>
 </header>
 
-<div class="content">
-<div class="table-header">
-<div class="table-title">Price List</div>
-<div class="date-selector">
-  <input type="date" id="dateInput" class="date-input">
-  <select id="timeInput" class="time-input">
-    <option value="">Latest</option>
-  </select>
-<div id="fullStatus" class="date-status date-available">
-    Updated: <span id="dateDisplay"></span> | <span id="dateStatus"></span>
-  </div>
-  <button id="resetDateBtn" class="reset-date-btn">Reset</button>
-</div>
+<section class="content">
+<div class="table-header panel">
+   <div class="table-title-wrap">
+      <h2 class="table-title">Price List</h2>
+      <p class="table-subtitle">Compare in-store and online prices quickly.</p>
+   </div>
+   <div class="date-selector">
+      <input type="date" id="dateInput" class="date-input" aria-label="Select Date">
+      <select id="timeInput" class="time-input" aria-label="Select Time">
+         <option value="">Latest</option>
+      </select>
+      <div id="fullStatus" class="date-status date-available">
+         Updated: <span id="dateDisplay"></span> | <span id="dateStatus"></span>
+      </div>
+      <button id="resetDateBtn" class="reset-date-btn" type="button">Reset</button>
+   </div>
 </div>
 
 <!-- NO DATA MESSAGE -->
@@ -41,7 +57,7 @@
 
 <!-- 10 DYNAMIC TABLES -->
 <div class="brand-section" id="iphoneSec">
-  <img src="https://1000logos.net/wp-content/uploads/2017/02/iPhone-Logo-2007.png" alt="" width="100" height="50">
+   <img src="https://1000logos.net/wp-content/uploads/2017/02/iPhone-Logo-2007.png" alt="iPhone" width="100" height="50">
 <div class="table-wrapper">
 <table>
 <thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
@@ -51,7 +67,7 @@
 </div>
 
 <div class="brand-section" id="oneplusSec">
-   <img src="https://vectorjungal.com/files/preview/1280x410/11722283114xoutmijigzv6mfdtr2mgewmwimzyf98dsupch4lorzvzkskdxmtqaxcttxd1dphrih7glnokllt5zvo4quizhzt7kbuecsc2wlaj.png" alt="" width="100" height="40">
+   <img src="https://vectorjungal.com/files/preview/1280x410/11722283114xoutmijigzv6mfdtr2mgewmwimzyf98dsupch4lorzvzkskdxmtqaxcttxd1dphrih7glnokllt5zvo4quizhzt7kbuecsc2wlaj.png" alt="OnePlus" width="100" height="40">
 <div class="table-wrapper">
 <table>
 <thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
@@ -61,7 +77,7 @@
 </div>
 
 <div class="brand-section" id="nothingSec">
-   <img src="https://nuraltech.com/wp-content/uploads/2023/05/Nothing-Logo.png" alt="" width="120" height="25">
+   <img src="https://nuraltech.com/wp-content/uploads/2023/05/Nothing-Logo.png" alt="Nothing" width="120" height="25">
 <div class="table-wrapper">
 <table>
 <thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
@@ -71,7 +87,7 @@
 </div>
 
 <div class="brand-section" id="motoSec">
-   <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Motorola_new_logo.svg" alt="" width="100" height="50">
+   <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Motorola_new_logo.svg" alt="Motorola" width="100" height="50">
 <div class="table-wrapper">
 <table>
 <thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
@@ -81,7 +97,7 @@
 </div>
 
 <div class="brand-section" id="iqooSec">
-   <img src="https://wp.logos-download.com/wp-content/uploads/2024/01/IQOO_Logo.png?dl" alt="" width="80" height="20">
+   <img src="https://wp.logos-download.com/wp-content/uploads/2024/01/IQOO_Logo.png?dl" alt="iQOO" width="80" height="20">
 <div class="table-wrapper">
 <table>
 <thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
@@ -91,7 +107,7 @@
 </div>
   
   <div class="brand-section" id="ai+Sec">
-   <img src="https://pbs.twimg.com/profile_images/1933392330763218950/t_7jGLCo_400x400.jpg" alt="" width="40" height="32">
+   <img src="https://pbs.twimg.com/profile_images/1933392330763218950/t_7jGLCo_400x400.jpg" alt="AI Plus" width="40" height="32">
 <div class="table-wrapper">
 <table>
 <thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
@@ -101,7 +117,7 @@
 </div>
 
 <div class="brand-section" id="tecnoSec">
-   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Tecno_Mobile_logo.svg/960px-Tecno_Mobile_logo.svg.png" alt="" width="100" height="20">
+   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Tecno_Mobile_logo.svg/960px-Tecno_Mobile_logo.svg.png" alt="Tecno" width="100" height="20">
 <div class="table-wrapper">
 <table>
 <thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
@@ -111,7 +127,7 @@
 </div>
 
 <div class="brand-section" id="pocoSec">
-   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Poco_Smartphone_Company_logo.svg/960px-Poco_Smartphone_Company_logo.svg.png" alt="" width="90" height="50">
+   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Poco_Smartphone_Company_logo.svg/960px-Poco_Smartphone_Company_logo.svg.png" alt="Poco" width="90" height="50">
 <div class="table-wrapper">
 <table>
 <thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
@@ -121,7 +137,7 @@
 </div>
 
 <div class="brand-section" id="infinixSec">
-   <img src="https://cdn.worldvectorlogo.com/logos/infinix-1.svg" alt="" width="90" height="30">
+   <img src="https://cdn.worldvectorlogo.com/logos/infinix-1.svg" alt="Infinix" width="90" height="30">
 <div class="table-wrapper">
 <table>
 <thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
@@ -134,7 +150,7 @@
 </div>
 
 <div class="brand-section" id="oppoSec">
-   <img src="https://www.logo.wine/a/logo/Oppo/Oppo-Logo.wine.svg" alt="" width="120" height="50">
+   <img src="https://www.logo.wine/a/logo/Oppo/Oppo-Logo.wine.svg" alt="Oppo" width="120" height="50">
 <div class="table-wrapper">
 <table>
 <thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
@@ -144,7 +160,7 @@
 </div>
 
 <div class="brand-section" id="samsungSec">
-   <img src="https://1000logos.net/wp-content/uploads/2017/06/Font-Samsung-Logo.jpg" alt="" width="100" height="70">
+   <img src="https://1000logos.net/wp-content/uploads/2017/06/Font-Samsung-Logo.jpg" alt="Samsung" width="100" height="70">
 <div class="table-wrapper">
 <table>
 <thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
@@ -154,7 +170,7 @@
 </div>
 
   <div class="brand-section" id="vivoSec">
-     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Vivo_logo_2019.svg/1280px-Vivo_logo_2019.svg.png" alt="" width="100" height="30">
+     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Vivo_logo_2019.svg/1280px-Vivo_logo_2019.svg.png" alt="Vivo" width="100" height="30">
 <div class="table-wrapper">
 <table>
 <thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
@@ -164,7 +180,7 @@
 </div>
 
   <div class="brand-section" id="realmeSec">
-     <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Realme_logo.png" alt="" width="100" height="40">
+     <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Realme_logo.png" alt="Realme" width="100" height="40">
 <div class="table-wrapper">
 <table>
 <thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
@@ -174,7 +190,7 @@
 </div>
 
   <div class="brand-section" id="narzoSec">
-     <img src="https://www.punjabnewsexpress.com/images/article/article241735.jpg" alt="" width="100" height="40">
+     <img src="https://www.punjabnewsexpress.com/images/article/article241735.jpg" alt="Narzo" width="100" height="40">
 <div class="table-wrapper">
 <table>
 <thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
@@ -184,7 +200,7 @@
 </div>
 
 <div class="brand-section" id="redmiSec">
-   <img src="https://logodix.com/logo/914876.jpg" alt="" width="120" height="30">
+   <img src="https://logodix.com/logo/914876.jpg" alt="Redmi" width="120" height="30">
 <div class="table-wrapper">
 <table>
 <thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
@@ -204,7 +220,8 @@
 </div>
 
 </div>
-</div>
+</section>
+</main>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
 <script src="firebase-config.js"></script>
