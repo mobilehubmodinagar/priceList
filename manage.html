@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Price List</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f7fbff 0%, #eef6f9 100%);
+      color: #102027;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .head {
+      padding: 18px 20px;
+      background: #0d47a1;
+      color: #fff;
+    }
+
+    .head h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .head p {
+      margin: 6px 0 0;
+      opacity: 0.95;
+      font-size: 14px;
+    }
+
+    .body {
+      padding: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      border: 1px solid #cfd8dc;
+      border-radius: 8px;
+      padding: 9px 10px;
+      font-size: 14px;
+    }
+
+    .actions {
+      margin: 12px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .primary {
+      background: #0d47a1;
+      color: #fff;
+    }
+
+    .secondary {
+      background: #eceff1;
+      color: #263238;
+    }
+
+    .status {
+      margin-top: 8px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: #e8f5e9;
+      color: #1b5e20;
+      font-weight: 600;
+      min-height: 40px;
+    }
+
+    .error {
+      background: #ffebee;
+      color: #b71c1c;
+    }
+
+    .hint {
+      margin: 8px 0 0;
+      font-size: 13px;
+      color: #37474f;
+    }
+
+    .brand-tools {
+      margin-top: 14px;
+      margin-bottom: 10px;
+    }
+
+    .brand-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .brand-card {
+      border: 1px solid #d8e2e8;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .brand-card-header {
+      background: #f4f8fb;
+      padding: 10px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .brand-title {
+      font-weight: 700;
+      text-transform: capitalize;
+      color: #0d47a1;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 880px;
+    }
+
+    th,
+    td {
+      border-top: 1px solid #eef2f4;
+      padding: 8px;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    th {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: #546e7a;
+      background: #fafcfd;
+    }
+
+    .row-remove-btn {
+      background: #fbe9e7;
+      color: #c62828;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      min-width: 78px;
+    }
+
+    .mini-btn {
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      background: #eceff1;
+      color: #263238;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 16px;
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-card {
+      width: 100%;
+      max-width: 460px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.22);
+      overflow: hidden;
+    }
+
+    .modal-head {
+      background: #0d47a1;
+      color: #fff;
+      padding: 12px 14px;
+      font-weight: 700;
+    }
+
+    .modal-body {
+      padding: 14px;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .danger-btn {
+      background: #c62828;
+      color: #fff;
+    }
+
+    @media (max-width: 840px) {
+      .body {
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <h1>Price List Editor</h1>
+      <p>Load latest price list, edit in form view, and publish to a new date/time.</p>
+    </div>
+
+    <div class="body">
+      <div>
+        <div>
+          <div class="grid">
+            <div>
+              <label for="latestDate">Latest Date Found</label>
+              <input id="latestDate" type="text" readonly>
+            </div>
+            <div>
+              <label for="latestTime">Latest Time Found</label>
+              <input id="latestTime" type="text" readonly>
+            </div>
+            <div>
+              <label for="newDate">New Date</label>
+              <input id="newDate" type="date">
+            </div>
+            <div>
+              <label for="newTime">New Time (12-hour format)</label>
+              <input id="newTime" type="text" value="08:00 AM" placeholder="08:00 AM">
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="loadBtn" class="secondary">Load Latest Data</button>
+            <button id="publishBtn" class="primary">Publish New Date Data</button>
+            <button id="deleteBtn" class="secondary">Delete Selected Date/Time</button>
+          </div>
+
+          <div class="brand-tools">
+            <button id="addBrandBtn" class="secondary" type="button">Add Brand Section</button>
+          </div>
+
+          <div class="hint">Edit rows directly. Empty rows are ignored on publish.</div>
+          <div id="status" class="status">Ready.</div>
+        </div>
+
+        <div id="brandContainer" class="brand-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="deleteModal" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head">Delete Price List Entry</div>
+      <div class="modal-body">
+        <div class="grid">
+          <div>
+            <label for="deleteDateSelect">Select Date</label>
+            <select id="deleteDateSelect"></select>
+          </div>
+          <div>
+            <label for="deleteTimeSelect">Select Time</label>
+            <select id="deleteTimeSelect"></select>
+          </div>
+        </div>
+        <div class="hint">This will permanently delete selected date/time data.</div>
+        <div class="modal-actions">
+          <button id="closeDeleteModalBtn" class="secondary" type="button">Cancel</button>
+          <button id="confirmDeleteBtn" class="danger-btn" type="button">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script>
+    const statusEl = document.getElementById('status');
+    const latestDateEl = document.getElementById('latestDate');
+    const latestTimeEl = document.getElementById('latestTime');
+    const newDateEl = document.getElementById('newDate');
+    const newTimeEl = document.getElementById('newTime');
+    const brandContainerEl = document.getElementById('brandContainer');
+    const addBrandBtn = document.getElementById('addBrandBtn');
+    const deleteModalEl = document.getElementById('deleteModal');
+    const deleteDateSelectEl = document.getElementById('deleteDateSelect');
+    const deleteTimeSelectEl = document.getElementById('deleteTimeSelect');
+    const closeDeleteModalBtn = document.getElementById('closeDeleteModalBtn');
+    const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+
+    let lastSnapshotData = {};
+
+    function setStatus(message, isError) {
+      statusEl.textContent = message;
+      statusEl.className = isError ? 'status error' : 'status';
+    }
+
+    function convertTo24Hour(time12h) {
+      const [time, modifier] = time12h.split(' ');
+      if (!time || !modifier) return null;
+
+      let [hours, minutes] = time.split(':');
+      if (!hours || !minutes) return null;
+
+      hours = parseInt(hours, 10);
+      if (Number.isNaN(hours)) return null;
+
+      if (hours === 12) {
+        hours = 0;
+      }
+      if (modifier.toUpperCase() === 'PM') {
+        hours += 12;
+      }
+
+      return String(hours).padStart(2, '0') + ':' + minutes;
+    }
+
+    function sortTimesDescending(times) {
+      return times.slice().sort((a, b) => {
+        const a24 = convertTo24Hour(a) || '00:00';
+        const b24 = convertTo24Hour(b) || '00:00';
+        return b24.localeCompare(a24);
+      });
+    }
+
+    function getLatestDateKey(payload) {
+      const keys = Object.keys(payload || {});
+      return keys.sort().reverse()[0] || null;
+    }
+
+    function getLatestTimeKey(payload, dateKey) {
+      const dateData = payload && payload[dateKey] ? payload[dateKey] : null;
+      if (!dateData) return null;
+      const times = Object.keys(dateData);
+      return sortTimesDescending(times)[0] || null;
+    }
+
+    function isFirebaseConfigured() {
+      if (!window.firebaseConfig) return false;
+      const url = window.firebaseConfig.databaseURL || '';
+      return Boolean(url) && !url.includes('YOUR_PROJECT_ID');
+    }
+
+    function normalizeNumber(value) {
+      const trimmed = String(value || '').trim();
+      if (!trimmed) return null;
+      const num = Number(trimmed);
+      return Number.isFinite(num) ? num : null;
+    }
+
+    function normalizeText(value) {
+      return String(value || '').trim();
+    }
+
+    function isRowEmpty(rowObj) {
+      return !rowObj.model && !rowObj.ram_storage && !rowObj.color && rowObj.price === null && rowObj.online_price === null;
+    }
+
+    function buildRowHtml(item) {
+      const stock = item && item.stock ? item.stock : 'In Stock';
+      const price = item && item.price !== null && item.price !== undefined ? item.price : '';
+      const onlinePrice = item && item.online_price !== null && item.online_price !== undefined ? item.online_price : '';
+
+      return '<tr class="item-row">'
+        + '<td><input data-field="model" type="text" value="' + (item && item.model ? String(item.model).replace(/"/g, '&quot;') : '') + '"></td>'
+        + '<td><input data-field="ram_storage" type="text" value="' + (item && item.ram_storage ? String(item.ram_storage).replace(/"/g, '&quot;') : '') + '"></td>'
+        + '<td><input data-field="color" type="text" value="' + (item && item.color ? String(item.color).replace(/"/g, '&quot;') : '') + '"></td>'
+        + '<td><input data-field="price" type="number" value="' + price + '"></td>'
+        + '<td><input data-field="online_price" type="number" value="' + onlinePrice + '"></td>'
+        + '<td>'
+        + '<select data-field="stock">'
+        + '<option value="In Stock"' + (stock === 'In Stock' ? ' selected' : '') + '>In Stock</option>'
+        + '<option value="Out Stock"' + (stock === 'Out Stock' ? ' selected' : '') + '>Out Stock</option>'
+        + '</select>'
+        + '</td>'
+        + '<td><button class="row-remove-btn" type="button">Remove</button></td>'
+        + '</tr>';
+    }
+
+    function createBrandCard(brandName, items) {
+      const card = document.createElement('section');
+      card.className = 'brand-card';
+      card.dataset.brand = brandName;
+
+      const rows = (items && items.length ? items : [{}]).map(buildRowHtml).join('');
+
+      card.innerHTML = ''
+        + '<div class="brand-card-header">'
+        + '<div class="brand-title">' + brandName + '</div>'
+        + '<div>'
+        + '<button class="mini-btn add-row-btn" type="button">Add Row</button> '
+        + '<button class="mini-btn remove-brand-btn" type="button">Remove Brand</button>'
+        + '</div>'
+        + '</div>'
+        + '<div class="table-wrap">'
+        + '<table>'
+        + '<thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock</th><th>Action</th></tr></thead>'
+        + '<tbody>' + rows + '</tbody>'
+        + '</table>'
+        + '</div>';
+
+      const tbody = card.querySelector('tbody');
+      card.querySelector('.add-row-btn').addEventListener('click', () => {
+        tbody.insertAdjacentHTML('beforeend', buildRowHtml({}));
+      });
+
+      card.querySelector('.remove-brand-btn').addEventListener('click', () => {
+        card.remove();
+      });
+
+      tbody.addEventListener('click', event => {
+        if (event.target.classList.contains('row-remove-btn')) {
+          const row = event.target.closest('tr');
+          if (row) row.remove();
+        }
+      });
+
+      return card;
+    }
+
+    function renderBrandForm(latestData) {
+      brandContainerEl.innerHTML = '';
+      const brandKeys = Object.keys(latestData || {}).sort();
+      brandKeys.forEach(brand => {
+        const card = createBrandCard(brand, latestData[brand]);
+        brandContainerEl.appendChild(card);
+      });
+
+      if (!brandKeys.length) {
+        const emptyCard = createBrandCard('new-brand', [{}]);
+        brandContainerEl.appendChild(emptyCard);
+      }
+    }
+
+    function collectFormPayload() {
+      const payload = {};
+      const brandCards = Array.from(brandContainerEl.querySelectorAll('.brand-card'));
+
+      brandCards.forEach(card => {
+        const brand = normalizeText(card.dataset.brand).toLowerCase();
+        if (!brand) return;
+
+        const rows = Array.from(card.querySelectorAll('.item-row'));
+        const items = rows.map(row => {
+          const model = normalizeText(row.querySelector('[data-field="model"]').value);
+          const ramStorage = normalizeText(row.querySelector('[data-field="ram_storage"]').value);
+          const color = normalizeText(row.querySelector('[data-field="color"]').value);
+          const price = normalizeNumber(row.querySelector('[data-field="price"]').value);
+          const onlinePrice = normalizeNumber(row.querySelector('[data-field="online_price"]').value);
+          const stock = normalizeText(row.querySelector('[data-field="stock"]').value) || 'In Stock';
+
+          return {
+            model,
+            ram_storage: ramStorage,
+            color,
+            price,
+            online_price: onlinePrice,
+            stock
+          };
+        }).filter(item => !isRowEmpty(item));
+
+        payload[brand] = items;
+      });
+
+      return payload;
+    }
+
+    if (!isFirebaseConfigured()) {
+      setStatus('Firebase config is missing. Update firebase-config.js first.', true);
+    } else {
+      if (!firebase.apps.length) {
+        firebase.initializeApp(window.firebaseConfig);
+      }
+
+      const db = firebase.database();
+      const dbPath = window.firebaseDatabasePath || 'priceListData';
+      const rootRef = db.ref(dbPath);
+
+      function openDeleteModal() {
+        deleteModalEl.classList.add('open');
+        deleteModalEl.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeDeleteModal() {
+        deleteModalEl.classList.remove('open');
+        deleteModalEl.setAttribute('aria-hidden', 'true');
+      }
+
+      function populateDeleteDates(payload) {
+        const dates = Object.keys(payload || {}).sort().reverse();
+        deleteDateSelectEl.innerHTML = '';
+
+        dates.forEach(date => {
+          const option = document.createElement('option');
+          option.value = date;
+          option.textContent = date;
+          deleteDateSelectEl.appendChild(option);
+        });
+
+        if (newDateEl.value && dates.includes(newDateEl.value)) {
+          deleteDateSelectEl.value = newDateEl.value;
+        }
+      }
+
+      function populateDeleteTimes(payload, selectedDate) {
+        const dateData = payload[selectedDate] || {};
+        const times = Object.keys(dateData);
+        const sortedTimes = sortTimesDescending(times);
+
+        deleteTimeSelectEl.innerHTML = '';
+        sortedTimes.forEach(time => {
+          const option = document.createElement('option');
+          option.value = time;
+          option.textContent = time;
+          deleteTimeSelectEl.appendChild(option);
+        });
+
+        if (newTimeEl.value && sortedTimes.includes(newTimeEl.value.trim())) {
+          deleteTimeSelectEl.value = newTimeEl.value.trim();
+        }
+      }
+
+      async function loadLatest() {
+        try {
+          setStatus('Loading latest data...', false);
+          const snapshot = await rootRef.get();
+          const payload = snapshot.exists() ? snapshot.val() : {};
+          lastSnapshotData = payload;
+
+          const latestDate = getLatestDateKey(payload);
+          if (!latestDate) {
+            latestDateEl.value = '';
+            latestTimeEl.value = '';
+            renderBrandForm({});
+            setStatus('No data found under selected Firebase path.', true);
+            return;
+          }
+
+          const latestTime = getLatestTimeKey(payload, latestDate);
+          if (!latestTime) {
+            latestDateEl.value = latestDate;
+            latestTimeEl.value = '';
+            renderBrandForm({});
+            setStatus('Latest date exists but no time entry found.', true);
+            return;
+          }
+
+          latestDateEl.value = latestDate;
+          latestTimeEl.value = latestTime;
+
+          const latestData = payload[latestDate][latestTime] || {};
+          renderBrandForm(latestData);
+
+          if (!newDateEl.value) {
+            const today = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+              .toISOString()
+              .split('T')[0];
+            newDateEl.value = today;
+          }
+
+          setStatus('Latest data loaded. Edit in form and publish to new date/time.', false);
+        } catch (error) {
+          setStatus('Failed to load data: ' + (error.message || String(error)), true);
+        }
+      }
+
+      async function publishNew() {
+        try {
+          const newDate = newDateEl.value;
+          const newTime = newTimeEl.value.trim();
+
+          if (!newDate) {
+            setStatus('Please select New Date.', true);
+            return;
+          }
+
+          if (!newTime) {
+            setStatus('Please enter New Time.', true);
+            return;
+          }
+
+          if (!convertTo24Hour(newTime)) {
+            setStatus('New Time must be in format like 08:00 AM.', true);
+            return;
+          }
+
+          const newPayload = collectFormPayload();
+          if (!Object.keys(newPayload).length) {
+            setStatus('No brand data to publish. Add at least one brand and row.', true);
+            return;
+          }
+
+          const targetRef = rootRef.child(newDate).child(newTime);
+          const existingSnapshot = await targetRef.get();
+          if (existingSnapshot.exists()) {
+            const shouldOverwrite = window.confirm(
+              'Data already exists for ' + newDate + ' / ' + newTime + '. Do you want to overwrite it?'
+            );
+
+            if (!shouldOverwrite) {
+              setStatus('Publish cancelled. Existing data was not changed.', true);
+              return;
+            }
+          }
+
+          setStatus('Publishing new data...', false);
+          await targetRef.set(newPayload);
+
+          latestDateEl.value = newDate;
+          latestTimeEl.value = newTime;
+          setStatus('Published successfully to ' + newDate + ' / ' + newTime, false);
+        } catch (error) {
+          setStatus('Failed to publish: ' + (error.message || String(error)), true);
+        }
+      }
+
+      async function deleteSelected() {
+        try {
+          const snapshot = await rootRef.get();
+          const payload = snapshot.exists() ? snapshot.val() : {};
+          lastSnapshotData = payload;
+
+          const availableDates = Object.keys(payload || {});
+          if (!availableDates.length) {
+            setStatus('No data available to delete.', true);
+            return;
+          }
+
+          populateDeleteDates(payload);
+          const selectedDate = deleteDateSelectEl.value;
+          populateDeleteTimes(payload, selectedDate);
+
+          openDeleteModal();
+        } catch (error) {
+          setStatus('Failed to open delete options: ' + (error.message || String(error)), true);
+        }
+      }
+
+      async function confirmDeleteSelected() {
+        try {
+          const targetDate = deleteDateSelectEl.value;
+          const targetTime = deleteTimeSelectEl.value;
+
+          if (!targetDate || !targetTime) {
+            setStatus('Please select date and time to delete.', true);
+            return;
+          }
+
+          const targetRef = rootRef.child(targetDate).child(targetTime);
+          const snapshot = await targetRef.get();
+
+          if (!snapshot.exists()) {
+            setStatus('Selected data no longer exists. Refresh and try again.', true);
+            closeDeleteModal();
+            await loadLatest();
+            return;
+          }
+
+          const shouldDelete = window.confirm(
+            'Are you sure you want to delete data for ' + targetDate + ' / ' + targetTime + '?'
+          );
+
+          if (!shouldDelete) {
+            setStatus('Delete cancelled.', true);
+            return;
+          }
+
+          await targetRef.remove();
+
+          // Remove empty date node after deleting time node
+          const dateRef = rootRef.child(targetDate);
+          const dateSnapshot = await dateRef.get();
+          const remaining = dateSnapshot.exists() ? dateSnapshot.val() : null;
+          if (!remaining || !Object.keys(remaining).length) {
+            await dateRef.remove();
+          }
+
+          closeDeleteModal();
+          newDateEl.value = targetDate;
+          newTimeEl.value = targetTime;
+          setStatus('Deleted successfully: ' + targetDate + ' / ' + targetTime, false);
+          await loadLatest();
+        } catch (error) {
+          setStatus('Failed to delete: ' + (error.message || String(error)), true);
+        }
+      }
+
+      document.getElementById('loadBtn').addEventListener('click', loadLatest);
+      document.getElementById('publishBtn').addEventListener('click', publishNew);
+      document.getElementById('deleteBtn').addEventListener('click', deleteSelected);
+      deleteDateSelectEl.addEventListener('change', () => {
+        populateDeleteTimes(lastSnapshotData, deleteDateSelectEl.value);
+      });
+      closeDeleteModalBtn.addEventListener('click', closeDeleteModal);
+      confirmDeleteBtn.addEventListener('click', confirmDeleteSelected);
+      deleteModalEl.addEventListener('click', event => {
+        if (event.target === deleteModalEl) {
+          closeDeleteModal();
+        }
+      });
+      addBrandBtn.addEventListener('click', () => {
+        const name = window.prompt('Enter brand name (example: iphone, samsung):');
+        const brand = normalizeText(name).toLowerCase();
+        if (!brand) return;
+
+        const existing = brandContainerEl.querySelector('.brand-card[data-brand="' + brand.replace(/"/g, '') + '"]');
+        if (existing) {
+          setStatus('Brand already exists: ' + brand, true);
+          return;
+        }
+
+        const card = createBrandCard(brand, [{}]);
+        brandContainerEl.appendChild(card);
+      });
+
+      loadLatest();
+    }
+  </script>
+</body>
+</html>

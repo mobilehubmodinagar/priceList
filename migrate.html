@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Migrate JSON To Firebase</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1a1a1a;
+      padding: 24px;
+    }
+
+    .card {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 24px;
+    }
+
+    p {
+      line-height: 1.5;
+    }
+
+    .row {
+      margin: 14px 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    button {
+      border: none;
+      border-radius: 8px;
+      background: #0d6efd;
+      color: white;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .danger {
+      background: #dc3545;
+    }
+
+    #status {
+      margin-top: 12px;
+      font-weight: 600;
+    }
+
+    pre {
+      margin-top: 10px;
+      white-space: pre-wrap;
+      background: #f1f3f5;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Migrate Old JSON to Firebase Realtime Database</h1>
+    <p>
+      Select your old JSON file (for example the previous data.json), then upload it to the Firebase path
+      <strong id="dbPath"></strong>.
+    </p>
+
+    <div class="row">
+      <input type="file" id="jsonFile" accept="application/json">
+      <button id="uploadBtn">Upload To Firebase</button>
+      <button id="clearBtn" class="danger">Clear Firebase Path</button>
+    </div>
+
+    <div id="status">Waiting for file selection...</div>
+    <pre id="log"></pre>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script>
+    const statusEl = document.getElementById('status');
+    const logEl = document.getElementById('log');
+    const uploadBtn = document.getElementById('uploadBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const fileInput = document.getElementById('jsonFile');
+
+    const dbPath = window.firebaseDatabasePath || 'priceListData';
+    document.getElementById('dbPath').textContent = dbPath;
+
+    function log(message) {
+      logEl.textContent += message + '\n';
+    }
+
+    function setStatus(message, isError = false) {
+      statusEl.textContent = message;
+      statusEl.style.color = isError ? '#dc3545' : '#198754';
+    }
+
+    if (!window.firebaseConfig || !window.firebaseConfig.databaseURL || window.firebaseConfig.databaseURL.includes('YOUR_PROJECT_ID')) {
+      setStatus('Update firebase-config.js first.', true);
+      uploadBtn.disabled = true;
+      clearBtn.disabled = true;
+    } else {
+      firebase.initializeApp(window.firebaseConfig);
+      const db = firebase.database();
+      const rootRef = db.ref(dbPath);
+
+      uploadBtn.addEventListener('click', async () => {
+        const file = fileInput.files[0];
+        if (!file) {
+          setStatus('Choose a JSON file first.', true);
+          return;
+        }
+
+        try {
+          setStatus('Reading file...');
+          const raw = await file.text();
+          const payload = JSON.parse(raw);
+
+          setStatus('Uploading data to Firebase...');
+          await rootRef.set(payload);
+
+          setStatus('Migration completed successfully.');
+          log('Uploaded file: ' + file.name);
+          log('Firebase path: ' + dbPath);
+        } catch (error) {
+          setStatus('Migration failed. Check log.', true);
+          log('Error: ' + (error && error.message ? error.message : String(error)));
+        }
+      });
+
+      clearBtn.addEventListener('click', async () => {
+        const yes = window.confirm('This will delete all data at ' + dbPath + '. Continue?');
+        if (!yes) return;
+
+        try {
+          setStatus('Clearing Firebase path...');
+          await rootRef.remove();
+          setStatus('Firebase path cleared.');
+        } catch (error) {
+          setStatus('Failed to clear path.', true);
+          log('Error: ' + (error && error.message ? error.message : String(error)));
+        }
+      });
+    }
+  </script>
+</body>
+</html>

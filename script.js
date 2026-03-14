@@ -1,9 +1,92 @@
 let data = {};
-let lastDataHash = '';
+let isFirebaseReady = false;
+let dbRef = null;
+
+const staticBrandMap = {
+  iphone: { sectionId: 'iphoneSec', tbodyId: 'iphone' },
+  oneplus: { sectionId: 'oneplusSec', tbodyId: 'oneplus' },
+  nothing: { sectionId: 'nothingSec', tbodyId: 'nothing' },
+  moto: { sectionId: 'motoSec', tbodyId: 'moto' },
+  iqoo: { sectionId: 'iqooSec', tbodyId: 'iqoo' },
+  'ai+': { sectionId: 'ai+Sec', tbodyId: 'ai+' },
+  tecno: { sectionId: 'tecnoSec', tbodyId: 'tecno' },
+  poco: { sectionId: 'pocoSec', tbodyId: 'poco' },
+  infinix: { sectionId: 'infinixSec', tbodyId: 'infinix' },
+  oppo: { sectionId: 'oppoSec', tbodyId: 'oppo' },
+  samsung: { sectionId: 'samsungSec', tbodyId: 'samsung' },
+  vivo: { sectionId: 'vivoSec', tbodyId: 'vivo' },
+  realme: { sectionId: 'realmeSec', tbodyId: 'realme' },
+  narzo: { sectionId: 'narzoSec', tbodyId: 'narzo' },
+  redmi: { sectionId: 'redmiSec', tbodyId: 'redmi' },
+  accessories: { sectionId: 'accessoriesSec', tbodyId: 'accessories' },
+  nokia: { sectionId: 'nokiaSec', tbodyId: 'nokia' }
+};
+
+function toSafeDomId(brand) {
+  return `brand_${brand.toLowerCase().replace(/[^a-z0-9]+/g, '_')}`;
+}
+
+function getBrandDomIds(brand) {
+  if (staticBrandMap[brand]) return staticBrandMap[brand];
+  const safe = toSafeDomId(brand);
+  return { sectionId: `${safe}Sec`, tbodyId: safe };
+}
+
+function ensureBrandSection(brand) {
+  const { sectionId, tbodyId } = getBrandDomIds(brand);
+  let section = document.getElementById(sectionId);
+
+  if (!section) {
+    section = document.createElement('div');
+    section.className = 'brand-section';
+    section.id = sectionId;
+    section.innerHTML = `
+      <div class="brand-name">${brand}</div>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>Model</th><th>RAM Storage</th><th>Color</th><th>Price</th><th>Online Price</th><th>Stock Status</th></tr></thead>
+          <tbody id="${tbodyId}"></tbody>
+        </table>
+      </div>
+    `;
+
+    const content = document.querySelector('.content');
+    content.appendChild(section);
+  }
+
+  return { sectionId, tbodyId };
+}
+
+function isFirebaseConfigured() {
+  if (!window.firebaseConfig) return false;
+  const url = window.firebaseConfig.databaseURL || '';
+  return Boolean(url) && !url.includes('YOUR_PROJECT_ID');
+}
+
+function initFirebase() {
+  if (!isFirebaseConfigured() || typeof firebase === 'undefined') {
+    return false;
+  }
+
+  if (!firebase.apps.length) {
+    firebase.initializeApp(window.firebaseConfig);
+  }
+
+  const db = firebase.database();
+  const dbPath = window.firebaseDatabasePath || 'priceListData';
+  dbRef = db.ref(dbPath);
+  isFirebaseReady = true;
+  return true;
+}
 
 async function loadData() {
-  const res = await fetch('data.json', { cache: 'no-store' });
-  data = await res.json();
+  if (!isFirebaseReady || !dbRef) {
+    data = {};
+    return;
+  }
+
+  const snapshot = await dbRef.get();
+  data = snapshot.exists() ? snapshot.val() : {};
 }
 
 /* ================= TIME HELPERS ================= */
@@ -56,9 +139,10 @@ function populateTimes(dateStr) {
 
 /* ================= TABLE RENDER ================= */
 
-function renderTable(tbodyId, items) {
+function renderTable(brand, items) {
+  const { sectionId, tbodyId } = ensureBrandSection(brand);
   const tbody = document.getElementById(tbodyId);
-  const section = document.getElementById(tbodyId + 'Sec');
+  const section = document.getElementById(sectionId);
 
   tbody.innerHTML = '';
 
@@ -94,8 +178,10 @@ function getLatestAvailableDate(targetDate) {
 
 /* ================= UPDATED MAIN UPDATE ================= */
 
-async function updateDisplay() {
-  await loadData();
+async function updateDisplay(loadFresh = false) {
+  if (loadFresh) {
+    await loadData();
+  }
 
   const dateInput = document.getElementById('dateInput');
   const timeInput = document.getElementById('timeInput');
@@ -145,11 +231,12 @@ async function updateDisplay() {
   if (dayData) {
     document.getElementById('pageNotFound').style.display = 'none';
 
-    const brands = [
+    const baseBrands = [
       'iphone', 'oneplus', 'nothing', 'moto', 'iqoo', 'ai+', 'tecno', 
       'poco', 'infinix', 'oppo', 'samsung', 'vivo', 'realme', 
       'narzo', 'redmi', 'accessories', 'nokia'
     ];
+    const brands = Array.from(new Set([...baseBrands, ...Object.keys(dayData)]));
     brands.forEach(brand => renderTable(brand, dayData[brand] || []));
     
   } else {
@@ -159,25 +246,18 @@ async function updateDisplay() {
   }
 }
 
-/* ================= HOT RELOAD ================= */
+/* ================= REALTIME LISTENER ================= */
 
-function hotReload(interval = 30000) {
-  setInterval(async () => {
-    try {
-      const res = await fetch('data.json', { cache: 'no-store' });
-      const newData = await res.json();
-      const newHash = JSON.stringify(newData);
+function subscribeRealtimeUpdates() {
+  if (!isFirebaseReady || !dbRef) return;
 
-      if (newHash !== lastDataHash) {
-        data = newData;
-        lastDataHash = newHash;
-        updateDisplay();
-        console.log('🔁 Hot reloaded data.json');
-      }
-    } catch (err) {
-      console.error('Hot reload error:', err);
-    }
-  }, interval);
+  dbRef.on('value', snapshot => {
+    data = snapshot.exists() ? snapshot.val() : {};
+    updateDisplay(false);
+    console.log('Realtime data synced from Firebase');
+  }, err => {
+    console.error('Realtime listener error:', err);
+  });
 }
 
 /* ================= HARD RELOAD EVENTS ================= */
@@ -185,7 +265,7 @@ function hotReload(interval = 30000) {
 // Reload when tab becomes active
 document.addEventListener('visibilitychange', () => {
   if (!document.hidden) {
-    updateDisplay();
+    updateDisplay(false);
   }
 });
 
@@ -193,7 +273,7 @@ document.addEventListener('visibilitychange', () => {
 document.addEventListener('keydown', (e) => {
   if (e.ctrlKey && e.key === 'r') {
     e.preventDefault();
-    updateDisplay();
+    updateDisplay(true);
     console.log('🔄 Manual hard reload');
   }
 });
@@ -205,6 +285,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   const timeInput = document.getElementById('timeInput');
   const resetBtn = document.getElementById('resetDateBtn');
 
+  if (!initFirebase()) {
+    document.getElementById('dateStatus').textContent = 'Firebase not configured';
+    document.getElementById('dateStatus').className = 'date-status date-not-found';
+    document.getElementById('pageNotFound').style.display = 'block';
+    document.querySelector('#pageNotFound h2').textContent = 'Configuration Required';
+    document.querySelector('#pageNotFound p').textContent = 'Set your Firebase details in firebase-config.js';
+    document.querySelectorAll('.brand-section').forEach(s => s.style.display = 'none');
+    return;
+  }
+
   const today = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
     .toISOString()
     .split('T')[0];
@@ -214,24 +304,21 @@ document.addEventListener('DOMContentLoaded', async () => {
   dateInput.onchange = () => {
     timeInput.value = '';
     populateTimes(dateInput.value);
-    updateDisplay();
+    updateDisplay(false);
   };
 
-  timeInput.onchange = updateDisplay;
+  timeInput.onchange = () => updateDisplay(false);
 
   resetBtn.onclick = () => {
-    location.reload(true);
     dateInput.value = today;
     timeInput.value = '';
     populateTimes(today);
-    updateDisplay();
+    updateDisplay(true);
   };
 
   await loadData();
-  lastDataHash = JSON.stringify(data);
-
   populateTimes(today);
-  updateDisplay();
+  updateDisplay(false);
 
-  hotReload(); // start hot reload
+  subscribeRealtimeUpdates();
 });
