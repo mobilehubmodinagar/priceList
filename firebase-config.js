@@ -12,7 +12,4 @@ window.firebaseConfig = {
 
 // Root node used by the app and migration page
 window.firebaseDatabasePath = "priceListData";
-
-
-
- 
+window.firebaseHeaderPath = "headerContact";

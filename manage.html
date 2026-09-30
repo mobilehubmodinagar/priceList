@@ -498,6 +498,311 @@
       color: #fff;
     }
 
+    /* Head Actions & View Site Link */
+    .head-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .view-site-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: var(--radius-md);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      backdrop-filter: blur(6px);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .view-site-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    /* Section Headings */
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 4px;
+    }
+
+    .section-subtitle {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .header-editor-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* Header Form Grid */
+    .header-form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .form-col-full {
+      grid-column: 1 / -1;
+    }
+
+    /* Staff Contacts Section */
+    .staff-section {
+      background: #f7faff;
+      border: 1px solid #dce7f7;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+
+    .staff-section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .staff-section-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .staff-contacts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .staff-contact-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      background: #ffffff;
+      padding: 10px 14px;
+      border: 1px solid #dde6f5;
+      border-radius: var(--radius-md);
+      flex-wrap: wrap;
+    }
+
+    .staff-contact-row input {
+      flex: 1;
+      min-width: 140px;
+      padding: 8px 12px;
+      border: 1px solid #cfdcfa;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.88rem;
+    }
+
+    .staff-contact-row input:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+
+    .remove-staff-btn {
+      background: #fee2e2;
+      border: 1px solid #fca5a5;
+      color: var(--danger);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .remove-staff-btn:hover {
+      background: #fecaca;
+      border-color: #f87171;
+    }
+
+    /* Live Header Preview in Manage */
+    .header-preview-wrap {
+      margin-top: 14px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(15, 109, 255, 0.2);
+    }
+
+    .preview-header-bar {
+      background: linear-gradient(132deg, #0f6dff 0%, #0b78ca 42%, #0ea4a0 100%);
+      color: #fff;
+      padding: 16px 20px;
+    }
+
+    .preview-badge-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-bottom: 6px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .preview-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin: 0 0 6px;
+    }
+
+    .preview-line {
+      font-size: 0.88rem;
+      opacity: 0.95;
+      margin: 3px 0;
+      line-height: 1.4;
+    }
+
+    /* Manage Search Menu Panel */
+    .manage-search-panel {
+      margin-top: 22px;
+      margin-bottom: 22px;
+      padding: 16px 20px;
+      background: #ffffff;
+      border: 1.5px solid #c9defe;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 6px 18px rgba(15, 109, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .manage-search-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .manage-search-heading {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #162033;
+    }
+
+    .manage-search-stats {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .manage-match-badge {
+      padding: 4px 10px;
+      background: #e0edff;
+      color: #0f6dff;
+      border: 1px solid #bcd7fe;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .manage-search-bar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .manage-search-input {
+      flex: 1;
+      min-width: 260px;
+      padding: 11px 14px;
+      border: 1.5px solid #cfdcfa;
+      border-radius: var(--radius-md);
+      font-family: inherit;
+      font-size: 0.92rem;
+      background: #f7faff;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .manage-search-input:focus {
+      background: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(15, 109, 255, 0.12);
+    }
+
+    .manage-brand-select {
+      padding: 11px 14px;
+      border: 1.5px solid #cfdcfa;
+      border-radius: var(--radius-md);
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      background: #f7faff;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .manage-brand-chips {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      overflow-x: auto;
+      padding: 2px 0 4px;
+      scrollbar-width: thin;
+    }
+
+    .manage-chip {
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid #d4e2fa;
+      background: #f0f5ff;
+      color: #3b5987;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+      text-transform: capitalize;
+    }
+
+    .manage-chip:hover {
+      background: #dceaff;
+      color: var(--primary);
+    }
+
+    .manage-chip.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
     @media (max-width: 840px) {
       body {
         padding: 14px 10px;
@@ -549,10 +854,78 @@
         <h1>Price List Editor</h1>
         <p>Load the latest price list, update rows and brand display settings, then publish to a new date and time.</p>
       </div>
+      <div class="head-actions">
+        <a href="index.html" class="view-site-btn" target="_blank">View Live Price List ↗</a>
+      </div>
     </div>
 
     <div class="body">
       <div>
+        <!-- STORE HEADER & CONTACT INFORMATION PANEL -->
+        <div class="panel" style="margin-bottom: 22px;">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title">Store Header & Contact Information</h2>
+              <p class="section-subtitle">Modify the store name, tagline, address, primary phone and staff contact details shown in the header of index.html.</p>
+            </div>
+            <div class="header-editor-actions">
+              <button id="loadHeaderBtn" class="secondary" type="button">Reload Contact Info</button>
+              <button id="saveHeaderBtn" class="primary" type="button">Save Contact Details to Firebase</button>
+            </div>
+          </div>
+
+          <div class="header-form-grid">
+            <div>
+              <label for="headerStoreTitleInput">Store Name / Title</label>
+              <input id="headerStoreTitleInput" type="text" placeholder="Mobile Hub">
+            </div>
+            <div>
+              <label for="headerTaglineInput">Tagline / Eyebrow</label>
+              <input id="headerTaglineInput" type="text" placeholder="Live Retail Dashboard">
+            </div>
+            <div class="form-col-full">
+              <label for="headerAddressInput">Store Address</label>
+              <input id="headerAddressInput" type="text" placeholder="Mobile market, Adarsh Nagar, Modinagar">
+            </div>
+            <div>
+              <label for="headerPrimaryNameInput">Primary Contact Person Name</label>
+              <input id="headerPrimaryNameInput" type="text" placeholder="Ayush Jindal">
+            </div>
+            <div>
+              <label for="headerPrimaryNumberInput">Primary Contact Phone Number</label>
+              <input id="headerPrimaryNumberInput" type="text" placeholder="8439588304">
+            </div>
+          </div>
+
+          <!-- STAFF / ADDITIONAL CONTACTS LIST -->
+          <div class="staff-section">
+            <div class="staff-section-head">
+              <div>
+                <div class="staff-section-title">Additional / Staff Contacts</div>
+                <div class="hint" style="margin-top: 2px;">Names and phone numbers shown in the secondary contact line of the header.</div>
+              </div>
+              <button id="addStaffContactBtn" class="mini-btn" type="button">+ Add Staff Contact</button>
+            </div>
+            <div id="staffContactsContainer" class="staff-contacts-list">
+              <!-- Dynamically populated rows -->
+            </div>
+          </div>
+
+          <!-- LIVE HEADER PREVIEW -->
+          <div class="header-preview-wrap">
+            <div class="preview-header-bar">
+              <div class="preview-badge-label">Live Header Preview</div>
+              <h3 class="preview-title" id="prevStoreTitle">Mobile Hub</h3>
+              <p class="preview-line" id="prevPrimaryContact">Mobile: 8439588304 | Ayush Jindal</p>
+              <p class="preview-line" id="prevAddress">Mobile market, Adarsh Nagar, Modinagar</p>
+              <p class="preview-line" id="prevStaffContacts">(Abhishek- 7417828942, Shrikant- 9560519459, Aasif- 9045266461)</p>
+            </div>
+          </div>
+
+          <div id="headerStatus" class="status" style="margin-top: 14px;">Header contact details ready.</div>
+        </div>
+
+        <!-- PUBLISH DATE & TIME PANEL -->
         <div class="panel">
           <div class="grid">
             <div>
@@ -568,8 +941,11 @@
               <input id="newDate" type="date">
             </div>
             <div>
-              <label for="newTime">New Time (12-hour format)</label>
-              <input id="newTime" type="text" value="08:00 AM" placeholder="08:00 AM">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <label for="newTime" style="margin-bottom: 0;">New Time (12-hour format)</label>
+                <button id="setCurrentTimeBtn" class="mini-btn" type="button" style="padding: 2px 8px; font-size: 0.74rem;" title="Set to current time">⏱ Current Time</button>
+              </div>
+              <input id="newTime" type="text" placeholder="e.g. 06:15 PM">
             </div>
           </div>
 
@@ -585,6 +961,29 @@
 
           <div class="hint">Edit rows directly. Empty rows are ignored on publish.</div>
           <div id="status" class="status">Ready.</div>
+        </div>
+
+        <!-- SEARCH MENU PANEL FOR EDITOR -->
+        <div class="manage-search-panel" id="manageSearchPanel">
+          <div class="manage-search-top">
+            <div class="manage-search-heading">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <span>Search & Filter Price List Editor</span>
+            </div>
+            <div class="manage-search-stats">
+              <span id="manageSearchMatchBadge" class="manage-match-badge" style="display:none;"></span>
+              <button type="button" id="manageSearchClearBtn" class="mini-btn" style="display:none;">Clear Search</button>
+            </div>
+          </div>
+          <div class="manage-search-bar">
+            <input type="text" id="manageSearchInput" class="manage-search-input" placeholder="Search by model, specs, color, price or brand in editor..." autocomplete="off">
+            <select id="manageBrandJumpSelect" class="manage-brand-select">
+              <option value="">Jump to Brand...</option>
+            </select>
+          </div>
+          <div class="manage-brand-chips" id="manageBrandChips">
+            <!-- Dynamic brand navigation chips -->
+          </div>
         </div>
 
         <div id="brandContainer" class="brand-list"></div>
@@ -624,6 +1023,7 @@
     const latestTimeEl = document.getElementById('latestTime');
     const newDateEl = document.getElementById('newDate');
     const newTimeEl = document.getElementById('newTime');
+    const setCurrentTimeBtn = document.getElementById('setCurrentTimeBtn');
     const brandContainerEl = document.getElementById('brandContainer');
     const addBrandBtn = document.getElementById('addBrandBtn');
     const deleteModalEl = document.getElementById('deleteModal');
@@ -632,7 +1032,158 @@
     const closeDeleteModalBtn = document.getElementById('closeDeleteModalBtn');
     const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
 
+    function getCurrentTime12Hour() {
+      const now = new Date();
+      let hours = now.getHours();
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const modifier = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      if (hours === 0) hours = 12;
+      const formattedHours = String(hours).padStart(2, '0');
+      return `${formattedHours}:${minutes} ${modifier}`;
+    }
+
+    function getTodayDateString() {
+      return new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+        .toISOString()
+        .split('T')[0];
+    }
+
+    function updateTimeToCurrent() {
+      if (newTimeEl) {
+        newTimeEl.value = getCurrentTime12Hour();
+      }
+    }
+
+    // Header contact editor elements
+    const headerStatusEl = document.getElementById('headerStatus');
+    const headerStoreTitleInput = document.getElementById('headerStoreTitleInput');
+    const headerTaglineInput = document.getElementById('headerTaglineInput');
+    const headerAddressInput = document.getElementById('headerAddressInput');
+    const headerPrimaryNameInput = document.getElementById('headerPrimaryNameInput');
+    const headerPrimaryNumberInput = document.getElementById('headerPrimaryNumberInput');
+    const staffContactsContainer = document.getElementById('staffContactsContainer');
+    const addStaffContactBtn = document.getElementById('addStaffContactBtn');
+    const saveHeaderBtn = document.getElementById('saveHeaderBtn');
+    const loadHeaderBtn = document.getElementById('loadHeaderBtn');
+
+    // Live preview elements
+    const prevStoreTitle = document.getElementById('prevStoreTitle');
+    const prevTagline = document.getElementById('prevTagline');
+    const prevPrimaryContact = document.getElementById('prevPrimaryContact');
+    const prevAddress = document.getElementById('prevAddress');
+    const prevStaffContacts = document.getElementById('prevStaffContacts');
+
+    // Manage search elements
+    const manageSearchInput = document.getElementById('manageSearchInput');
+    const manageSearchClearBtn = document.getElementById('manageSearchClearBtn');
+    const manageBrandJumpSelect = document.getElementById('manageBrandJumpSelect');
+    const manageBrandChips = document.getElementById('manageBrandChips');
+    const manageSearchMatchBadge = document.getElementById('manageSearchMatchBadge');
+    let manageActiveBrandFilter = '';
+
     let lastSnapshotData = {};
+
+    function setHeaderStatus(message, isError) {
+      if (!headerStatusEl) return;
+      headerStatusEl.textContent = message;
+      headerStatusEl.className = isError ? 'status error' : 'status';
+    }
+
+    const defaultHeaderContact = {
+      storeTitle: 'Mobile Hub',
+      tagline: 'Live Retail Dashboard',
+      primaryName: 'Ayush Jindal',
+      primaryNumber: '8439588304',
+      address: 'Mobile market, Adarsh Nagar, Modinagar',
+      staffContacts: [
+        { name: 'Abhishek', number: '7417828942' },
+        { name: 'Shrikant', number: '9560519459' },
+        { name: 'Aasif', number: '9045266461' }
+      ]
+    };
+
+    function updateHeaderLivePreview() {
+      const title = headerStoreTitleInput ? headerStoreTitleInput.value.trim() || 'Store Name' : '';
+      const tagline = headerTaglineInput ? headerTaglineInput.value.trim() || 'Tagline / Eyebrow' : '';
+      const addr = headerAddressInput ? headerAddressInput.value.trim() || 'Store Address' : '';
+      const pName = headerPrimaryNameInput ? headerPrimaryNameInput.value.trim() : '';
+      const pNum = headerPrimaryNumberInput ? headerPrimaryNumberInput.value.trim() : '';
+
+      if (prevStoreTitle) prevStoreTitle.textContent = title;
+      if (prevTagline) prevTagline.textContent = tagline;
+      if (prevAddress) prevAddress.textContent = addr;
+
+      if (prevPrimaryContact) {
+        if (pNum && pName) {
+          prevPrimaryContact.textContent = `Mobile: ${pNum} | ${pName}`;
+        } else if (pNum) {
+          prevPrimaryContact.textContent = `Mobile: ${pNum}`;
+        } else if (pName) {
+          prevPrimaryContact.textContent = pName;
+        } else {
+          prevPrimaryContact.textContent = '';
+        }
+      }
+
+      if (prevStaffContacts && staffContactsContainer) {
+        const staffRows = Array.from(staffContactsContainer.querySelectorAll('.staff-contact-row'));
+        const parts = staffRows.map(row => {
+          const name = row.querySelector('.staff-name-input')?.value.trim();
+          const num = row.querySelector('.staff-number-input')?.value.trim();
+          if (name && num) return `${name}- ${num}`;
+          return name || num;
+        }).filter(Boolean);
+
+        if (parts.length > 0) {
+          prevStaffContacts.textContent = `(${parts.join(', ')})`;
+          prevStaffContacts.style.display = '';
+        } else {
+          prevStaffContacts.textContent = '';
+          prevStaffContacts.style.display = 'none';
+        }
+      }
+    }
+
+    function createStaffRow(contact = {}) {
+      const row = document.createElement('div');
+      row.className = 'staff-contact-row';
+      row.innerHTML = `
+        <input type="text" class="staff-name-input" placeholder="Staff Name (e.g. Abhishek)" value="${escapeHtml(contact.name || '')}">
+        <input type="text" class="staff-number-input" placeholder="Phone Number (e.g. 7417828942)" value="${escapeHtml(contact.number || '')}">
+        <button type="button" class="remove-staff-btn" title="Remove Contact">Remove</button>
+      `;
+
+      row.querySelectorAll('input').forEach(input => {
+        input.addEventListener('input', updateHeaderLivePreview);
+      });
+
+      row.querySelector('.remove-staff-btn').addEventListener('click', () => {
+        row.remove();
+        updateHeaderLivePreview();
+      });
+
+      return row;
+    }
+
+    function populateHeaderForm(data) {
+      const info = data || defaultHeaderContact;
+      if (headerStoreTitleInput) headerStoreTitleInput.value = info.storeTitle || defaultHeaderContact.storeTitle;
+      if (headerTaglineInput) headerTaglineInput.value = info.tagline || defaultHeaderContact.tagline;
+      if (headerAddressInput) headerAddressInput.value = info.address || defaultHeaderContact.address;
+      if (headerPrimaryNameInput) headerPrimaryNameInput.value = info.primaryName || defaultHeaderContact.primaryName;
+      if (headerPrimaryNumberInput) headerPrimaryNumberInput.value = info.primaryNumber || defaultHeaderContact.primaryNumber;
+
+      if (staffContactsContainer) {
+        staffContactsContainer.innerHTML = '';
+        const staffList = Array.isArray(info.staffContacts) ? info.staffContacts : defaultHeaderContact.staffContacts;
+        staffList.forEach(s => {
+          staffContactsContainer.appendChild(createStaffRow(s));
+        });
+      }
+
+      updateHeaderLivePreview();
+    }
 
     const defaultBrandDisplay = {
       iphone: { imageUrl: 'https://1000logos.net/wp-content/uploads/2017/02/iPhone-Logo-2007.png', width: 100, height: 50 },
@@ -820,22 +1371,28 @@
       const tbody = card.querySelector('tbody');
       card.querySelector('.add-row-btn').addEventListener('click', () => {
         tbody.insertAdjacentHTML('beforeend', buildRowHtml({}));
+        updateTimeToCurrent();
       });
 
       card.querySelector('.remove-brand-btn').addEventListener('click', () => {
         card.remove();
         validateBrandSerials();
+        updateTimeToCurrent();
       });
 
       const serialInput = card.querySelector('.brand-serial-input');
       serialInput.addEventListener('input', () => {
         validateBrandSerials();
+        updateTimeToCurrent();
       });
 
       tbody.addEventListener('click', event => {
         if (event.target.classList.contains('row-remove-btn')) {
           const row = event.target.closest('tr');
-          if (row) row.remove();
+          if (row) {
+            row.remove();
+            updateTimeToCurrent();
+          }
           return;
         }
 
@@ -844,6 +1401,7 @@
           const prev = row ? row.previousElementSibling : null;
           if (row && prev) {
             tbody.insertBefore(row, prev);
+            updateTimeToCurrent();
           }
           return;
         }
@@ -853,8 +1411,17 @@
           const next = row ? row.nextElementSibling : null;
           if (row && next) {
             tbody.insertBefore(next, row);
+            updateTimeToCurrent();
           }
         }
+      });
+
+      card.addEventListener('input', () => {
+        updateTimeToCurrent();
+      });
+
+      card.addEventListener('change', () => {
+        updateTimeToCurrent();
       });
 
       return card;
@@ -1037,6 +1604,8 @@
 
       assignMissingSerialsToCards();
       validateBrandSerials();
+      updateManageBrandMenu();
+      applyManageSearch();
     }
 
     function collectFormPayload() {
@@ -1197,11 +1766,9 @@
           renderBrandForm(latestData);
 
           if (!newDateEl.value) {
-            const today = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
-              .toISOString()
-              .split('T')[0];
-            newDateEl.value = today;
+            newDateEl.value = getTodayDateString();
           }
+          updateTimeToCurrent();
 
           setStatus('Latest data loaded. Edit in form and publish to new date/time.', false);
         } catch (error) {
@@ -1261,6 +1828,7 @@
           latestDateEl.value = newDate;
           latestTimeEl.value = newTime;
           setStatus('Published successfully to ' + newDate + ' / ' + newTime, false);
+          updateTimeToCurrent();
         } catch (error) {
           setStatus('Failed to publish: ' + (error.message || String(error)), true);
         }
@@ -1328,13 +1896,229 @@
           }
 
           closeDeleteModal();
-          newDateEl.value = targetDate;
-          newTimeEl.value = targetTime;
+          newDateEl.value = getTodayDateString();
+          updateTimeToCurrent();
           setStatus('Deleted successfully: ' + targetDate + ' / ' + targetTime, false);
           await loadLatest();
         } catch (error) {
           setStatus('Failed to delete: ' + (error.message || String(error)), true);
         }
+      }
+
+      async function loadHeaderContact() {
+        try {
+          setHeaderStatus('Loading contact details from Firebase...', false);
+          const headerPath = window.firebaseHeaderPath || 'headerContact';
+          const snapshot = await db.ref(headerPath).get();
+          if (snapshot.exists()) {
+            populateHeaderForm(snapshot.val());
+            setHeaderStatus('Contact details loaded from Firebase.', false);
+          } else {
+            populateHeaderForm(defaultHeaderContact);
+            setHeaderStatus('No custom contact info found in Firebase. Showing defaults.', false);
+          }
+        } catch (err) {
+          console.error('Failed to load header contact:', err);
+          populateHeaderForm(defaultHeaderContact);
+          setHeaderStatus('Could not load from Firebase: ' + (err.message || String(err)), true);
+        }
+      }
+
+      async function saveHeaderContact() {
+        try {
+          const storeTitle = normalizeText(headerStoreTitleInput.value);
+          const tagline = normalizeText(headerTaglineInput.value);
+          const address = normalizeText(headerAddressInput.value);
+          const primaryName = normalizeText(headerPrimaryNameInput.value);
+          const primaryNumber = normalizeText(headerPrimaryNumberInput.value);
+
+          if (!storeTitle) {
+            setHeaderStatus('Store Title cannot be empty.', true);
+            headerStoreTitleInput.focus();
+            return;
+          }
+
+          const staffRows = Array.from(staffContactsContainer.querySelectorAll('.staff-contact-row'));
+          const staffContacts = staffRows.map(row => {
+            const name = normalizeText(row.querySelector('.staff-name-input')?.value);
+            const number = normalizeText(row.querySelector('.staff-number-input')?.value);
+            return { name, number };
+          }).filter(item => item.name || item.number);
+
+          const payload = {
+            storeTitle,
+            tagline,
+            address,
+            primaryName,
+            primaryNumber,
+            staffContacts,
+            updatedAt: new Date().toISOString()
+          };
+
+          setHeaderStatus('Saving contact details to Firebase...', false);
+          const headerPath = window.firebaseHeaderPath || 'headerContact';
+          await db.ref(headerPath).set(payload);
+
+          setHeaderStatus('✓ Contact details saved successfully to Firebase at ' + new Date().toLocaleTimeString(), false);
+          updateHeaderLivePreview();
+        } catch (err) {
+          console.error('Failed to save header contact:', err);
+          setHeaderStatus('Failed to save contact info: ' + (err.message || String(err)), true);
+        }
+      }
+
+      function updateManageBrandMenu() {
+        const cards = Array.from(brandContainerEl.querySelectorAll('.brand-card'));
+        const brands = cards.map(c => normalizeText(c.dataset.brand)).filter(Boolean);
+
+        if (manageBrandJumpSelect) {
+          const prev = manageBrandJumpSelect.value;
+          manageBrandJumpSelect.innerHTML = '<option value="">Jump to Brand... (' + brands.length + ')</option>';
+          brands.forEach(b => {
+            const opt = document.createElement('option');
+            opt.value = b;
+            opt.textContent = b.toUpperCase();
+            manageBrandJumpSelect.appendChild(opt);
+          });
+          manageBrandJumpSelect.value = prev;
+        }
+
+        if (manageBrandChips) {
+          manageBrandChips.innerHTML = '';
+
+          const allChip = document.createElement('button');
+          allChip.type = 'button';
+          allChip.className = 'manage-chip' + (manageActiveBrandFilter === '' ? ' active' : '');
+          allChip.textContent = 'All Brands';
+          allChip.addEventListener('click', () => {
+            manageActiveBrandFilter = '';
+            if (manageBrandJumpSelect) manageBrandJumpSelect.value = '';
+            updateManageActiveChip('');
+            applyManageSearch();
+          });
+          manageBrandChips.appendChild(allChip);
+
+          brands.forEach(b => {
+            const chip = document.createElement('button');
+            chip.type = 'button';
+            chip.className = 'manage-chip' + (manageActiveBrandFilter.toLowerCase() === b.toLowerCase() ? ' active' : '');
+            chip.textContent = b;
+            chip.addEventListener('click', () => {
+              manageActiveBrandFilter = b;
+              if (manageBrandJumpSelect) manageBrandJumpSelect.value = b;
+              updateManageActiveChip(b);
+              applyManageSearch();
+              jumpToBrandCard(b);
+            });
+            manageBrandChips.appendChild(chip);
+          });
+        }
+      }
+
+      function updateManageActiveChip(brand) {
+        if (!manageBrandChips) return;
+        const chips = Array.from(manageBrandChips.querySelectorAll('.manage-chip'));
+        chips.forEach(c => {
+          const chipText = c.textContent.trim().toLowerCase();
+          if (brand === '') {
+            c.classList.toggle('active', chipText === 'all brands');
+          } else {
+            c.classList.toggle('active', chipText === brand.toLowerCase());
+          }
+        });
+      }
+
+      function jumpToBrandCard(brand) {
+        const card = Array.from(brandContainerEl.querySelectorAll('.brand-card'))
+          .find(c => normalizeText(c.dataset.brand).toLowerCase() === brand.toLowerCase());
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          card.style.transition = 'box-shadow 0.3s ease';
+          card.style.boxShadow = '0 0 0 4px rgba(15, 109, 255, 0.4)';
+          setTimeout(() => {
+            card.style.boxShadow = '';
+          }, 1500);
+        }
+      }
+
+      function applyManageSearch() {
+        const query = normalizeText(manageSearchInput ? manageSearchInput.value : '').toLowerCase();
+        const brandFilter = normalizeText(manageActiveBrandFilter).toLowerCase();
+
+        const cards = Array.from(brandContainerEl.querySelectorAll('.brand-card'));
+        let totalMatchingRows = 0;
+        let matchingBrandsCount = 0;
+
+        cards.forEach(card => {
+          const brandName = normalizeText(card.dataset.brand).toLowerCase();
+          const brandMatchesFilter = !brandFilter || brandName === brandFilter;
+
+          const rows = Array.from(card.querySelectorAll('.item-row'));
+          let cardMatchingRows = 0;
+
+          rows.forEach(row => {
+            if (!brandMatchesFilter) {
+              row.style.display = 'none';
+              return;
+            }
+
+            if (!query) {
+              row.style.display = '';
+              cardMatchingRows++;
+              totalMatchingRows++;
+              return;
+            }
+
+            const model = normalizeText(row.querySelector('[data-field="model"]')?.value).toLowerCase();
+            const spec = normalizeText(row.querySelector('[data-field="ram_storage"]')?.value).toLowerCase();
+            const color = normalizeText(row.querySelector('[data-field="color"]')?.value).toLowerCase();
+            const price = normalizeText(row.querySelector('[data-field="price"]')?.value).toLowerCase();
+            const online = normalizeText(row.querySelector('[data-field="online_price"]')?.value).toLowerCase();
+            const stock = normalizeText(row.querySelector('[data-field="stock"]')?.value).toLowerCase();
+
+            const rowContent = `${brandName} ${model} ${spec} ${color} ${price} ${online} ${stock}`;
+            const tokens = query.split(/\s+/).filter(Boolean);
+            const isMatch = tokens.every(token => rowContent.includes(token));
+
+            if (isMatch) {
+              row.style.display = '';
+              cardMatchingRows++;
+              totalMatchingRows++;
+            } else {
+              row.style.display = 'none';
+            }
+          });
+
+          if (cardMatchingRows > 0) {
+            card.style.display = '';
+            matchingBrandsCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        const isSearching = Boolean(query || brandFilter);
+
+        if (manageSearchClearBtn) {
+          manageSearchClearBtn.style.display = isSearching ? 'inline-block' : 'none';
+        }
+
+        if (manageSearchMatchBadge) {
+          if (isSearching) {
+            manageSearchMatchBadge.style.display = 'inline-block';
+            manageSearchMatchBadge.textContent = `${totalMatchingRows} matching ${totalMatchingRows === 1 ? 'model' : 'models'} in ${matchingBrandsCount} ${matchingBrandsCount === 1 ? 'brand' : 'brands'}`;
+          } else {
+            manageSearchMatchBadge.style.display = 'none';
+          }
+        }
+      }
+
+      function clearManageSearch() {
+        if (manageSearchInput) manageSearchInput.value = '';
+        manageActiveBrandFilter = '';
+        if (manageBrandJumpSelect) manageBrandJumpSelect.value = '';
+        updateManageActiveChip('');
+        applyManageSearch();
       }
 
       document.getElementById('loadBtn').addEventListener('click', loadLatest);
@@ -1366,9 +2150,92 @@
         brandContainerEl.appendChild(card);
         assignMissingSerialsToCards();
         validateBrandSerials();
+        updateManageBrandMenu();
+        updateTimeToCurrent();
       });
 
+      // Always update time to current time when user is modifying list data
+      brandContainerEl.addEventListener('input', () => {
+        updateTimeToCurrent();
+      });
+      brandContainerEl.addEventListener('change', () => {
+        updateTimeToCurrent();
+      });
+
+      // Quick button to set current time
+      if (setCurrentTimeBtn) {
+        setCurrentTimeBtn.addEventListener('click', () => {
+          updateTimeToCurrent();
+          setStatus('Time updated to current time: ' + newTimeEl.value, false);
+        });
+      }
+
+      // Auto update time every 30 seconds unless user is actively editing the time field
+      setInterval(() => {
+        if (document.activeElement !== newTimeEl) {
+          updateTimeToCurrent();
+        }
+      }, 30000);
+
+      // Header contact event listeners
+      if (saveHeaderBtn) saveHeaderBtn.addEventListener('click', saveHeaderContact);
+      if (loadHeaderBtn) loadHeaderBtn.addEventListener('click', loadHeaderContact);
+      if (addStaffContactBtn) {
+        addStaffContactBtn.addEventListener('click', () => {
+          if (staffContactsContainer) {
+            staffContactsContainer.appendChild(createStaffRow({}));
+            updateHeaderLivePreview();
+          }
+        });
+      }
+
+      [headerStoreTitleInput, headerTaglineInput, headerAddressInput, headerPrimaryNameInput, headerPrimaryNumberInput].forEach(inp => {
+        if (inp) inp.addEventListener('input', updateHeaderLivePreview);
+      });
+
+      // Manage search event listeners
+      if (manageSearchInput) {
+        let searchTimer = null;
+        manageSearchInput.addEventListener('input', () => {
+          clearTimeout(searchTimer);
+          searchTimer = setTimeout(applyManageSearch, 70);
+        });
+      }
+
+      if (manageSearchClearBtn) {
+        manageSearchClearBtn.addEventListener('click', clearManageSearch);
+      }
+
+      if (manageBrandJumpSelect) {
+        manageBrandJumpSelect.addEventListener('change', () => {
+          manageActiveBrandFilter = manageBrandJumpSelect.value;
+          updateManageActiveChip(manageActiveBrandFilter);
+          applyManageSearch();
+          if (manageActiveBrandFilter) {
+            jumpToBrandCard(manageActiveBrandFilter);
+          }
+        });
+      }
+
+      // Shortcut to focus search
+      window.addEventListener('keydown', e => {
+        if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'f')) &&
+            document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'SELECT' && document.activeElement.tagName !== 'TEXTAREA') {
+          e.preventDefault();
+          if (manageSearchInput) {
+            manageSearchInput.focus();
+            manageSearchInput.select();
+          }
+        }
+      });
+
+      if (newDateEl && !newDateEl.value) {
+        newDateEl.value = getTodayDateString();
+      }
+      updateTimeToCurrent();
+
       loadLatest();
+      loadHeaderContact();
     }
   </script>
 </body>

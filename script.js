@@ -1,6 +1,101 @@
 let data = {};
 let isFirebaseReady = false;
 let dbRef = null;
+let headerRef = null;
+
+let currentSearchQuery = '';
+let currentBrandFilter = '';
+let currentStockFilter = '';
+let searchDebounceTimer = null;
+
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+const defaultHeaderContact = {
+  storeTitle: 'Mobile Hub',
+  tagline: 'Live Retail Dashboard',
+  primaryName: 'Ayush Jindal',
+  primaryNumber: '8439588304',
+  address: 'Mobile market, Adarsh Nagar, Modinagar',
+  staffContacts: [
+    { name: 'Abhishek', number: '7417828942' },
+    { name: 'Shrikant', number: '9560519459' },
+    { name: 'Aasif', number: '9045266461' }
+  ]
+};
+
+function renderHeaderContact(contactData) {
+  const info = contactData || defaultHeaderContact;
+  const storeTitle = info.storeTitle || defaultHeaderContact.storeTitle;
+  const tagline = info.tagline || defaultHeaderContact.tagline;
+  const primaryName = info.primaryName || defaultHeaderContact.primaryName;
+  const primaryNumber = info.primaryNumber || defaultHeaderContact.primaryNumber;
+  const address = info.address || defaultHeaderContact.address;
+  const staff = Array.isArray(info.staffContacts) ? info.staffContacts : defaultHeaderContact.staffContacts;
+
+  const taglineEl = document.getElementById('headerTagline');
+  if (taglineEl) taglineEl.textContent = tagline;
+
+  const storeTitleEl = document.getElementById('headerStoreTitle');
+  if (storeTitleEl) storeTitleEl.textContent = storeTitle;
+
+  const primaryContactEl = document.getElementById('headerPrimaryContact');
+  if (primaryContactEl) {
+    if (primaryNumber && primaryName) {
+      primaryContactEl.innerHTML = `Mobile: <a href="tel:${escapeHtml(primaryNumber)}" class="contact-link">${escapeHtml(primaryNumber)}</a> | <span>${escapeHtml(primaryName)}</span>`;
+    } else if (primaryNumber) {
+      primaryContactEl.innerHTML = `Mobile: <a href="tel:${escapeHtml(primaryNumber)}" class="contact-link">${escapeHtml(primaryNumber)}</a>`;
+    } else if (primaryName) {
+      primaryContactEl.textContent = primaryName;
+    } else {
+      primaryContactEl.textContent = '';
+    }
+  }
+
+  const addressEl = document.getElementById('headerAddress');
+  if (addressEl) addressEl.textContent = address || '';
+
+  const staffEl = document.getElementById('headerStaffContacts');
+  if (staffEl) {
+    if (staff && staff.length > 0) {
+      const parts = staff
+        .filter(s => s && (s.name || s.number))
+        .map(s => {
+          const name = s.name ? escapeHtml(s.name) : '';
+          const num = s.number ? `<a href="tel:${escapeHtml(s.number)}" class="contact-link">${escapeHtml(s.number)}</a>` : '';
+          if (name && num) return `${name}- ${num}`;
+          return name || num;
+        });
+      if (parts.length > 0) {
+        staffEl.innerHTML = `(${parts.join(', ')})`;
+        staffEl.style.display = '';
+      } else {
+        staffEl.style.display = 'none';
+      }
+    } else {
+      staffEl.style.display = 'none';
+    }
+  }
+}
+
+function subscribeHeaderContact() {
+  if (!isFirebaseReady) return;
+  const headerPath = window.firebaseHeaderPath || 'headerContact';
+  headerRef = firebase.database().ref(headerPath);
+  headerRef.on('value', snapshot => {
+    const val = snapshot.exists() ? snapshot.val() : null;
+    renderHeaderContact(val);
+  }, err => {
+    console.error('Header contact listener error:', err);
+    renderHeaderContact(null);
+  });
+}
 
 const staticBrandMap = {
   iphone: { sectionId: 'iphoneSec', tbodyId: 'iphone' },
@@ -223,18 +318,27 @@ function renderTable(brand, items, dayData) {
 
   section.style.display = 'block';
 
-  items.forEach(item => {
+  items.forEach((item, index) => {
     const stockClass = item.stock === 'In Stock' ? 'in-stock' : 'out-stock';
     const rowClass = item.stock === 'In Stock' ? 'stock-row-in' : 'stock-row-out';
     const stockLabel = item.stock === 'In Stock' ? 'IN' : 'OUT';
+    const safeBrand = String(brand).toLowerCase().replace(/[^a-z0-9]+/g, '_');
+    const rowId = `row_${safeBrand}_${index}`;
 
     tbody.innerHTML += `
-      <tr class="${rowClass}">
-        <td>${item.model || ''}</td>
-        <td>${item.ram_storage || ''}</td>
-        <td>${item.color || ''}</td>
-        <td class="price">${item.price?.toLocaleString('en-IN') || '-'}</td>
-        <td class="online-price">${item.online_price ? item.online_price.toLocaleString('en-IN') : '-'}</td>
+      <tr class="${rowClass}" id="${rowId}"
+          data-brand="${escapeHtml(brand)}"
+          data-model="${escapeHtml(item.model || '')}"
+          data-spec="${escapeHtml(item.ram_storage || '')}"
+          data-color="${escapeHtml(item.color || '')}"
+          data-price="${item.price !== null && item.price !== undefined ? item.price : ''}"
+          data-online="${item.online_price !== null && item.online_price !== undefined ? item.online_price : ''}"
+          data-stock="${escapeHtml(item.stock || 'In Stock')}">
+        <td class="cell-model">${escapeHtml(item.model || '')}</td>
+        <td class="cell-spec">${escapeHtml(item.ram_storage || '')}</td>
+        <td class="cell-color">${escapeHtml(item.color || '')}</td>
+        <td class="price">${item.price !== null && item.price !== undefined && item.price !== '' ? Number(item.price).toLocaleString('en-IN') : '-'}</td>
+        <td class="online-price">${item.online_price ? Number(item.online_price).toLocaleString('en-IN') : '-'}</td>
         <td class="stock-cell"><span class="stock-badge ${stockClass}"><span class="stock-word">STOCK</span><span class="stock-state">${stockLabel}</span></span></td>
       </tr>
     `;
@@ -408,12 +512,363 @@ async function updateDisplay(loadFresh = false) {
     arrangeBrandSections(brands);
     brands.forEach(brand => renderTable(brand, dayData[brand] || [], dayData));
     refreshSectionAnimation();
+    updateBrandMenuAndChips(brands);
+    applySearchFilter();
     
   } else {
     document.getElementById('dateStatus').className = 'date-status date-not-found';
     document.getElementById('pageNotFound').style.display = 'block';
     document.querySelectorAll('.brand-section').forEach(s => s.style.display = 'none');
+    const noResultsEl = document.getElementById('searchNoResults');
+    if (noResultsEl) noResultsEl.style.display = 'none';
   }
+}
+
+/* ================= SEARCH & FILTER MENU ================= */
+
+function highlightSearchMatch(text, query) {
+  const safeText = escapeHtml(text || '');
+  if (!query) return safeText;
+  const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const regex = new RegExp(`(${escapedQuery})`, 'gi');
+  return safeText.replace(regex, '<mark class="search-highlight">$1</mark>');
+}
+
+function updateBrandMenuAndChips(brands) {
+  const brandSelect = document.getElementById('brandFilterSelect');
+  const chipsMenu = document.getElementById('brandChipsMenu');
+
+  if (brandSelect) {
+    const prevVal = brandSelect.value;
+    brandSelect.innerHTML = `<option value="">All Brands (${brands.length})</option>`;
+    brands.forEach(brand => {
+      const opt = document.createElement('option');
+      opt.value = brand;
+      opt.textContent = brand.charAt(0).toUpperCase() + brand.slice(1);
+      brandSelect.appendChild(opt);
+    });
+    brandSelect.value = prevVal;
+  }
+
+  if (chipsMenu) {
+    chipsMenu.innerHTML = '';
+
+    const allChip = document.createElement('button');
+    allChip.type = 'button';
+    allChip.className = `brand-chip ${currentBrandFilter === '' ? 'active' : ''}`;
+    allChip.dataset.brand = '';
+    allChip.textContent = 'All Brands';
+    allChip.addEventListener('click', () => {
+      currentBrandFilter = '';
+      if (brandSelect) brandSelect.value = '';
+      updateActiveBrandChip('');
+      applySearchFilter();
+    });
+    chipsMenu.appendChild(allChip);
+
+    brands.forEach(brand => {
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = `brand-chip ${currentBrandFilter.toLowerCase() === brand.toLowerCase() ? 'active' : ''}`;
+      chip.dataset.brand = brand;
+      chip.textContent = brand;
+      chip.addEventListener('click', () => {
+        currentBrandFilter = brand;
+        if (brandSelect) brandSelect.value = brand;
+        updateActiveBrandChip(brand);
+        applySearchFilter();
+      });
+      chipsMenu.appendChild(chip);
+    });
+  }
+}
+
+function updateActiveBrandChip(brand) {
+  const chips = document.querySelectorAll('.brand-chip');
+  chips.forEach(chip => {
+    const targetBrand = (chip.dataset.brand || '').toLowerCase();
+    chip.classList.toggle('active', targetBrand === (brand || '').toLowerCase());
+  });
+}
+
+function renderSearchDropdown(query, items) {
+  const dropdownMenu = document.getElementById('searchDropdownMenu');
+  const dropdownList = document.getElementById('searchDropdownList');
+  if (!dropdownMenu || !dropdownList) return;
+
+  if (!query || items.length === 0) {
+    dropdownMenu.style.display = 'none';
+    dropdownList.innerHTML = '';
+    return;
+  }
+
+  dropdownList.innerHTML = '';
+  items.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'search-dropdown-item';
+    const stockClass = item.stock === 'In Stock' ? 'in-stock' : 'out-stock';
+    const stockText = item.stock === 'In Stock' ? 'IN' : 'OUT';
+
+    div.innerHTML = `
+      <div class="search-dropdown-main">
+        <div class="search-dropdown-model">${highlightSearchMatch(item.model, query)}</div>
+        <div class="search-dropdown-sub">
+          <span class="search-dropdown-brand-tag">${escapeHtml(item.brand)}</span>
+          ${item.spec ? `<span>${escapeHtml(item.spec)}</span>` : ''}
+          ${item.color ? `<span>• ${escapeHtml(item.color)}</span>` : ''}
+        </div>
+      </div>
+      <div class="search-dropdown-right">
+        <div class="search-dropdown-price">${item.price ? `₹${item.price}` : '-'}</div>
+        <span class="stock-badge ${stockClass}" style="padding: 2px 7px; font-size: 0.65rem;">
+          <span class="stock-state" style="font-size: 0.62rem;">${stockText}</span>
+        </span>
+      </div>
+    `;
+
+    div.addEventListener('click', () => {
+      dropdownMenu.style.display = 'none';
+      const targetRow = document.getElementById(item.rowId);
+      if (targetRow) {
+        targetRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        targetRow.classList.remove('row-highlight-pulse');
+        void targetRow.offsetWidth;
+        targetRow.classList.add('row-highlight-pulse');
+      }
+    });
+
+    dropdownList.appendChild(div);
+  });
+
+  dropdownMenu.style.display = 'flex';
+}
+
+function applySearchFilter() {
+  const query = currentSearchQuery.trim().toLowerCase();
+  const brandFilter = currentBrandFilter.trim().toLowerCase();
+  const stockFilter = currentStockFilter.trim();
+
+  let totalVisibleRows = 0;
+  let matchingBrandsCount = 0;
+  const matchingItemsList = [];
+
+  const sections = document.querySelectorAll('.brand-section');
+
+  sections.forEach(section => {
+    const tbody = section.querySelector('tbody');
+    if (!tbody) return;
+
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    let sectionVisibleCount = 0;
+
+    rows.forEach(row => {
+      const model = row.getAttribute('data-model') || '';
+      const brand = row.getAttribute('data-brand') || '';
+      const spec = row.getAttribute('data-spec') || '';
+      const color = row.getAttribute('data-color') || '';
+      const price = row.getAttribute('data-price') || '';
+      const onlinePrice = row.getAttribute('data-online') || '';
+      const stock = row.getAttribute('data-stock') || '';
+
+      if (!model && row.querySelector('td[colspan]')) {
+        return;
+      }
+
+      const matchBrand = !brandFilter || brand.toLowerCase() === brandFilter;
+      const matchStock = !stockFilter || stock === stockFilter;
+
+      let matchQuery = true;
+      if (query) {
+        const fullSearchString = `${brand} ${model} ${spec} ${color} ${price} ${onlinePrice} ${stock}`.toLowerCase();
+        const tokens = query.split(/\s+/).filter(Boolean);
+        matchQuery = tokens.every(token => fullSearchString.includes(token));
+      }
+
+      const isMatch = matchBrand && matchStock && matchQuery;
+
+      if (isMatch) {
+        row.style.display = '';
+        sectionVisibleCount++;
+        totalVisibleRows++;
+
+        const modelCell = row.querySelector('.cell-model');
+        const specCell = row.querySelector('.cell-spec');
+        const colorCell = row.querySelector('.cell-color');
+        if (modelCell) modelCell.innerHTML = highlightSearchMatch(model, query);
+        if (specCell) specCell.innerHTML = highlightSearchMatch(spec, query);
+        if (colorCell) colorCell.innerHTML = highlightSearchMatch(color, query);
+
+        if (matchingItemsList.length < 15) {
+          matchingItemsList.push({
+            rowId: row.id,
+            brand,
+            model,
+            spec,
+            color,
+            price: price ? Number(price).toLocaleString('en-IN') : '',
+            stock
+          });
+        }
+      } else {
+        row.style.display = 'none';
+      }
+    });
+
+    const specialRows = tbody.querySelectorAll('tr td[colspan]');
+    specialRows.forEach(td => {
+      const parentRow = td.closest('tr');
+      if (parentRow) {
+        parentRow.style.display = sectionVisibleCount > 0 ? '' : 'none';
+      }
+    });
+
+    if (sectionVisibleCount > 0) {
+      section.style.display = 'block';
+      matchingBrandsCount++;
+    } else {
+      section.style.display = 'none';
+    }
+  });
+
+  const statsBar = document.getElementById('searchStatsBar');
+  const statsText = document.getElementById('searchStatsText');
+  const noResultsEl = document.getElementById('searchNoResults');
+  const noResultsText = document.getElementById('searchNoResultsText');
+  const clearBtn = document.getElementById('searchClearBtn');
+
+  if (clearBtn) {
+    clearBtn.style.display = query ? 'flex' : 'none';
+  }
+
+  const isFiltering = Boolean(query || brandFilter || stockFilter);
+
+  if (isFiltering) {
+    if (statsBar && statsText) {
+      statsBar.style.display = 'flex';
+      const queryLabel = query ? ` for "${escapeHtml(query)}"` : '';
+      const brandLabel = brandFilter ? ` in ${brandFilter.toUpperCase()}` : '';
+      const stockLabel = stockFilter ? ` (${stockFilter})` : '';
+      statsText.innerHTML = `Showing <strong>${totalVisibleRows}</strong> ${totalVisibleRows === 1 ? 'model' : 'models'} across <strong>${matchingBrandsCount}</strong> ${matchingBrandsCount === 1 ? 'brand' : 'brands'}${queryLabel}${brandLabel}${stockLabel}`;
+    }
+
+    if (totalVisibleRows === 0) {
+      if (noResultsEl) {
+        noResultsEl.style.display = 'block';
+        if (noResultsText) {
+          noResultsText.textContent = `No products match your current search and filter criteria.`;
+        }
+      }
+    } else {
+      if (noResultsEl) noResultsEl.style.display = 'none';
+    }
+  } else {
+    if (statsBar) statsBar.style.display = 'none';
+    if (noResultsEl) noResultsEl.style.display = 'none';
+  }
+
+  renderSearchDropdown(query, matchingItemsList);
+}
+
+function resetAllSearchAndFilters() {
+  currentSearchQuery = '';
+  currentBrandFilter = '';
+  currentStockFilter = '';
+
+  const searchInput = document.getElementById('searchInput');
+  const brandSelect = document.getElementById('brandFilterSelect');
+  const stockSelect = document.getElementById('stockFilterSelect');
+  const dropdownMenu = document.getElementById('searchDropdownMenu');
+
+  if (searchInput) searchInput.value = '';
+  if (brandSelect) brandSelect.value = '';
+  if (stockSelect) stockSelect.value = '';
+  if (dropdownMenu) dropdownMenu.style.display = 'none';
+
+  updateActiveBrandChip('');
+  applySearchFilter();
+}
+
+function setupSearchListeners() {
+  const searchInput = document.getElementById('searchInput');
+  const searchClearBtn = document.getElementById('searchClearBtn');
+  const brandSelect = document.getElementById('brandFilterSelect');
+  const stockSelect = document.getElementById('stockFilterSelect');
+  const resetAllBtn = document.getElementById('searchResetAllBtn');
+  const clearEmptyBtn = document.getElementById('clearSearchFromEmptyBtn');
+  const dropdownMenu = document.getElementById('searchDropdownMenu');
+
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(() => {
+        currentSearchQuery = searchInput.value;
+        applySearchFilter();
+      }, 70);
+    });
+
+    searchInput.addEventListener('focus', () => {
+      if (searchInput.value.trim().length > 0) {
+        applySearchFilter();
+      }
+    });
+  }
+
+  if (searchClearBtn) {
+    searchClearBtn.addEventListener('click', () => {
+      if (searchInput) searchInput.value = '';
+      currentSearchQuery = '';
+      if (dropdownMenu) dropdownMenu.style.display = 'none';
+      applySearchFilter();
+      if (searchInput) searchInput.focus();
+    });
+  }
+
+  if (brandSelect) {
+    brandSelect.addEventListener('change', () => {
+      currentBrandFilter = brandSelect.value;
+      updateActiveBrandChip(currentBrandFilter);
+      applySearchFilter();
+    });
+  }
+
+  if (stockSelect) {
+    stockSelect.addEventListener('change', () => {
+      currentStockFilter = stockSelect.value;
+      applySearchFilter();
+    });
+  }
+
+  if (resetAllBtn) {
+    resetAllBtn.addEventListener('click', resetAllSearchAndFilters);
+  }
+
+  if (clearEmptyBtn) {
+    clearEmptyBtn.addEventListener('click', resetAllSearchAndFilters);
+  }
+
+  // Keyboard shortcut: Press / or Ctrl+K to focus search input
+  window.addEventListener('keydown', e => {
+    if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) &&
+        document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'SELECT' && document.activeElement.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+      if (searchInput) {
+        searchInput.focus();
+        searchInput.select();
+      }
+    } else if (e.key === 'Escape') {
+      if (dropdownMenu) dropdownMenu.style.display = 'none';
+      if (searchInput && document.activeElement === searchInput) {
+        searchInput.blur();
+      }
+    }
+  });
+
+  // Click outside to close dropdown suggestions
+  document.addEventListener('click', e => {
+    if (!e.target.closest('#searchPanel') && dropdownMenu) {
+      dropdownMenu.style.display = 'none';
+    }
+  });
 }
 
 /* ================= REALTIME LISTENER ================= */
@@ -455,7 +910,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   const timeInput = document.getElementById('timeInput');
   const resetBtn = document.getElementById('resetDateBtn');
 
+  setupSearchListeners();
+
   if (!initFirebase()) {
+    renderHeaderContact(null);
     document.getElementById('dateStatus').textContent = 'Firebase not configured';
     document.getElementById('dateStatus').className = 'date-status date-not-found';
     document.getElementById('pageNotFound').style.display = 'block';
@@ -464,6 +922,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.querySelectorAll('.brand-section').forEach(s => s.style.display = 'none');
     return;
   }
+
+  subscribeHeaderContact();
 
   const today = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
     .toISOString()
