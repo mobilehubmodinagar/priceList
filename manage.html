@@ -683,6 +683,109 @@
       line-height: 1.4;
     }
 
+    /* Floating Toast Notification */
+    .app-toast {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-24px);
+      padding: 13px 22px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.94rem;
+      z-index: 999999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: 90vw;
+    }
+
+    .app-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+
+    .app-toast.success {
+      background: #065f46;
+      color: #ffffff;
+      border: 1.5px solid #34d399;
+      box-shadow: 0 10px 30px rgba(6, 95, 70, 0.45);
+    }
+
+    .app-toast.error {
+      background: #991b1b;
+      color: #ffffff;
+      border: 1.5px solid #f87171;
+      box-shadow: 0 10px 30px rgba(153, 27, 27, 0.45);
+    }
+
+    .app-toast.loading,
+    .app-toast.info {
+      background: #1e3a8a;
+      color: #ffffff;
+      border: 1.5px solid #60a5fa;
+      box-shadow: 0 10px 30px rgba(30, 58, 138, 0.45);
+    }
+
+    /* Header Status Banners (Top & Bottom) */
+    .header-status-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      margin-top: 12px;
+      margin-bottom: 14px;
+      transition: all 0.25s ease;
+      animation: bannerSlideIn 0.3s ease;
+    }
+
+    @keyframes bannerSlideIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .header-status-banner.ready {
+      background: #eff6ff;
+      border: 1.5px solid #bfdbfe;
+      color: #1e40af;
+    }
+
+    .header-status-banner.loading {
+      background: #fffbeb;
+      border: 1.5px solid #fcd34d;
+      color: #92400e;
+    }
+
+    .header-status-banner.success {
+      background: #ecfdf5;
+      border: 1.5px solid #34d399;
+      color: #065f46;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+    }
+
+    .header-status-banner.error {
+      background: #fef2f2;
+      border: 1.5px solid #f87171;
+      color: #991b1b;
+      box-shadow: 0 2px 8px rgba(239, 68, 68, 0.15);
+    }
+
+    .header-status-banner .status-icon {
+      font-size: 1.15rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
     /* Manage Search Menu Panel */
     .manage-search-panel {
       margin-top: 22px;
@@ -841,6 +944,9 @@
   </style>
 </head>
 <body>
+  <!-- Global Floating Toast Notification -->
+  <div id="appToast" class="app-toast" role="alert" aria-live="assertive"></div>
+
   <div class="page-bg" aria-hidden="true">
     <div class="bg-orb orb-a"></div>
     <div class="bg-orb orb-b"></div>
@@ -872,6 +978,12 @@
               <button id="loadHeaderBtn" class="secondary" type="button">Reload Contact Info</button>
               <button id="saveHeaderBtn" class="primary" type="button">Save Contact Details to Firebase</button>
             </div>
+          </div>
+
+          <!-- PROMINENT STATUS BANNER (TOP) -->
+          <div id="headerStatusTop" class="header-status-banner ready" role="status" aria-live="polite">
+            <span class="status-icon">ℹ</span>
+            <span class="status-text">Header contact details ready.</span>
           </div>
 
           <div class="header-form-grid">
@@ -922,7 +1034,14 @@
             </div>
           </div>
 
-          <div id="headerStatus" class="status" style="margin-top: 14px;">Header contact details ready.</div>
+          <div class="header-editor-actions" style="margin-top: 16px; margin-bottom: 10px; justify-content: flex-end;">
+            <button id="saveHeaderBtnBottom" class="primary" type="button">Save Contact Details to Firebase</button>
+          </div>
+          <!-- STATUS BANNER (BOTTOM) -->
+          <div id="headerStatus" class="header-status-banner ready" role="status" aria-live="polite">
+            <span class="status-icon">ℹ</span>
+            <span class="status-text">Header contact details ready.</span>
+          </div>
         </div>
 
         <!-- PUBLISH DATE & TIME PANEL -->
@@ -1057,6 +1176,7 @@
 
     // Header contact editor elements
     const headerStatusEl = document.getElementById('headerStatus');
+    const headerStatusTopEl = document.getElementById('headerStatusTop');
     const headerStoreTitleInput = document.getElementById('headerStoreTitleInput');
     const headerTaglineInput = document.getElementById('headerTaglineInput');
     const headerAddressInput = document.getElementById('headerAddressInput');
@@ -1065,6 +1185,7 @@
     const staffContactsContainer = document.getElementById('staffContactsContainer');
     const addStaffContactBtn = document.getElementById('addStaffContactBtn');
     const saveHeaderBtn = document.getElementById('saveHeaderBtn');
+    const saveHeaderBtnBottom = document.getElementById('saveHeaderBtnBottom');
     const loadHeaderBtn = document.getElementById('loadHeaderBtn');
 
     // Live preview elements
@@ -1084,10 +1205,52 @@
 
     let lastSnapshotData = {};
 
-    function setHeaderStatus(message, isError) {
-      if (!headerStatusEl) return;
-      headerStatusEl.textContent = message;
-      headerStatusEl.className = isError ? 'status error' : 'status';
+    function showAppToast(message, type = 'info', duration = 3500) {
+      const toast = document.getElementById('appToast');
+      if (!toast) return;
+      let icon = 'ℹ️';
+      if (type === 'success') icon = '✅';
+      else if (type === 'error') icon = '⚠️';
+      else if (type === 'loading') icon = '⏳';
+
+      toast.innerHTML = `<span style="font-size: 1.2rem;">${icon}</span><span>${message}</span>`;
+      toast.className = `app-toast ${type} show`;
+
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => {
+        toast.className = 'app-toast';
+      }, duration);
+    }
+
+    function setHeaderStatus(message, statusType = false, silent = false) {
+      let type = 'success';
+      let icon = '✓';
+
+      if (statusType === true || statusType === 'error') {
+        type = 'error';
+        icon = '⚠️';
+      } else if (statusType === 'loading') {
+        type = 'loading';
+        icon = '⏳';
+      } else if (statusType === 'ready' || statusType === 'info') {
+        type = 'ready';
+        icon = 'ℹ';
+      } else {
+        type = 'success';
+        icon = '✓';
+      }
+
+      const elements = [headerStatusTopEl, headerStatusEl];
+      elements.forEach(el => {
+        if (!el) return;
+        el.className = `header-status-banner ${type}`;
+        el.innerHTML = `<span class="status-icon">${icon}</span><span class="status-text">${message}</span>`;
+      });
+
+      // Show floating toast for user actions or errors
+      if (!silent && (type === 'success' || type === 'error' || type === 'loading')) {
+        showAppToast(message, type, type === 'error' ? 5000 : 3500);
+      }
     }
 
     const defaultHeaderContact = {
@@ -1905,26 +2068,27 @@
         }
       }
 
-      async function loadHeaderContact() {
+      async function loadHeaderContact(silent = true) {
         try {
-          setHeaderStatus('Loading contact details from Firebase...', false);
+          setHeaderStatus('Loading contact details from Firebase...', 'loading', silent);
           const headerPath = window.firebaseHeaderPath || 'headerContact';
           const snapshot = await db.ref(headerPath).get();
           if (snapshot.exists()) {
             populateHeaderForm(snapshot.val());
-            setHeaderStatus('Contact details loaded from Firebase.', false);
+            setHeaderStatus('Contact details loaded from Firebase.', 'ready', silent);
           } else {
             populateHeaderForm(defaultHeaderContact);
-            setHeaderStatus('No custom contact info found in Firebase. Showing defaults.', false);
+            setHeaderStatus('No custom contact info found in Firebase. Showing defaults.', 'ready', silent);
           }
         } catch (err) {
           console.error('Failed to load header contact:', err);
           populateHeaderForm(defaultHeaderContact);
-          setHeaderStatus('Could not load from Firebase: ' + (err.message || String(err)), true);
+          setHeaderStatus('Could not load from Firebase: ' + (err.message || String(err)), 'error', false);
         }
       }
 
       async function saveHeaderContact() {
+        const saveBtns = [saveHeaderBtn, saveHeaderBtnBottom].filter(Boolean);
         try {
           const storeTitle = normalizeText(headerStoreTitleInput.value);
           const tagline = normalizeText(headerTaglineInput.value);
@@ -1933,10 +2097,18 @@
           const primaryNumber = normalizeText(headerPrimaryNumberInput.value);
 
           if (!storeTitle) {
-            setHeaderStatus('Store Title cannot be empty.', true);
+            setHeaderStatus('Store Title cannot be empty.', 'error');
             headerStoreTitleInput.focus();
             return;
           }
+
+          saveBtns.forEach(btn => {
+            btn.disabled = true;
+            btn.style.opacity = '0.75';
+            btn.innerHTML = '⏳ Saving Contact Info...';
+          });
+
+          setHeaderStatus('Saving contact details to Firebase...', 'loading');
 
           const staffRows = Array.from(staffContactsContainer.querySelectorAll('.staff-contact-row'));
           const staffContacts = staffRows.map(row => {
@@ -1946,24 +2118,53 @@
           }).filter(item => item.name || item.number);
 
           const payload = {
-            storeTitle,
-            tagline,
-            address,
-            primaryName,
-            primaryNumber,
-            staffContacts,
+            storeTitle: storeTitle || 'Mobile Hub',
+            tagline: tagline || '',
+            address: address || '',
+            primaryName: primaryName || '',
+            primaryNumber: primaryNumber || '',
+            staffContacts: staffContacts || [],
             updatedAt: new Date().toISOString()
           };
 
-          setHeaderStatus('Saving contact details to Firebase...', false);
           const headerPath = window.firebaseHeaderPath || 'headerContact';
           await db.ref(headerPath).set(payload);
 
-          setHeaderStatus('✓ Contact details saved successfully to Firebase at ' + new Date().toLocaleTimeString(), false);
+          const timeStr = new Date().toLocaleTimeString();
+          setHeaderStatus(`✓ Contact details saved successfully to Firebase at ${timeStr}`, 'success');
           updateHeaderLivePreview();
+
+          saveBtns.forEach(btn => {
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            btn.style.background = '#10b981';
+            btn.style.borderColor = '#059669';
+            btn.style.color = '#ffffff';
+            btn.innerHTML = '✓ Saved Successfully!';
+            setTimeout(() => {
+              btn.style.background = '';
+              btn.style.borderColor = '';
+              btn.style.color = '';
+              btn.innerHTML = 'Save Contact Details to Firebase';
+            }, 3000);
+          });
         } catch (err) {
           console.error('Failed to save header contact:', err);
-          setHeaderStatus('Failed to save contact info: ' + (err.message || String(err)), true);
+          setHeaderStatus('Failed to save contact info: ' + (err.message || String(err)), 'error');
+          saveBtns.forEach(btn => {
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            btn.style.background = '#ef4444';
+            btn.style.borderColor = '#dc2626';
+            btn.style.color = '#ffffff';
+            btn.innerHTML = '✕ Save Failed';
+            setTimeout(() => {
+              btn.style.background = '';
+              btn.style.borderColor = '';
+              btn.style.color = '';
+              btn.innerHTML = 'Save Contact Details to Firebase';
+            }, 3500);
+          });
         }
       }
 
@@ -2179,7 +2380,18 @@
 
       // Header contact event listeners
       if (saveHeaderBtn) saveHeaderBtn.addEventListener('click', saveHeaderContact);
-      if (loadHeaderBtn) loadHeaderBtn.addEventListener('click', loadHeaderContact);
+      if (saveHeaderBtnBottom) saveHeaderBtnBottom.addEventListener('click', saveHeaderContact);
+      if (loadHeaderBtn) {
+        loadHeaderBtn.addEventListener('click', async () => {
+          loadHeaderBtn.disabled = true;
+          const origText = loadHeaderBtn.innerHTML;
+          loadHeaderBtn.innerHTML = '⏳ Reloading...';
+          await loadHeaderContact(false);
+          showAppToast('Contact info reloaded from Firebase', 'info');
+          loadHeaderBtn.disabled = false;
+          loadHeaderBtn.innerHTML = origText;
+        });
+      }
       if (addStaffContactBtn) {
         addStaffContactBtn.addEventListener('click', () => {
           if (staffContactsContainer) {
